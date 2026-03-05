@@ -57,7 +57,7 @@ Organizations that convert mobilization moments into durable policy influence ha
 
 ---
 
-## Slide Structure (Current)
+## Slide Structure (Current - 10 slides)
 
 1. **Title** - Name, affiliation, contact
 2. **The Puzzle** - Participation up, power down (47% decline, No Kings)
@@ -66,8 +66,9 @@ Organizations that convert mobilization moments into durable policy influence ha
 5. **Purple Line Chart** - [NEEDS IMAGE]
 6. **The Cake** - Organizations adopted metric [NEEDS IMAGE]
 7. **IPO Voter Findings** - 1.3M unique reach
-8. **Contributions** - 4 points
-9. **Conclusions** - Stays up for Q&A
+8. **Theory in Action** - Feb 2026: Minnesota, Ohio, Missouri defending communities (NEW)
+9. **Contributions** - 4 points
+10. **Conclusions** - Stays up for Q&A
 
 ---
 
@@ -94,6 +95,36 @@ Members of the participatory action project tracked committed leaders over time,
 - **Grey line:** Cumulative people who participated once
 - **Blue line:** People who participated 2-4 times
 - **Purple line:** People who participated 5+ times (highly committed)
+
+---
+
+## February 2026 Evidence (Slide 8 - "Theory in Action")
+
+**Action title:** "Organizations that built leadership density are now defending communities against federal overreach"
+
+**Minnesota:**
+- Unidos MN, Faith in Action organized rally outside Target HQ demanding corporate action against ICE
+- Packed state Capitol demanding accountability from legislators
+- Forced regime to reduce "enhanced" ICE operations after deadly surge
+- Media: CBS, BBC, WCCO, MPR
+
+**Ohio (Springfield):**
+- 1,000+ community members overwhelmed church event (2x expected) to support Haitians
+- Ohio Immigrant Alliance, Red Wine and Blue, G92, Haitian Support Center leading Know Your Rights trainings
+- 30+ bomb threats at schools/places of worship
+- City Commission passed ICE resolution requiring agents to carry ID, forgo masks
+- Media: Mother Jones, The 19th, NYTimes, Columbus Dispatch
+
+**Missouri:**
+- Submitted 3x required signatures to reject Trump-backed gerrymander
+- Organizers faced harassment from Patriot Grassroots agitators
+- Media: Democracy Docket, Independent Voter News
+
+**Also active:**
+- **Maine:** Sustained organizing post-ICE withdrawal, pushing for expanded healthcare access
+- **North Carolina:** Siembra NC documenting ICE, publishing "Defend and Recruit" playbook
+- **Utah:** Bipartisan Medicaid defense (Republican mayor of Provo penned op-ed)
+- **National:** 8,000 faith leaders gathered online opposing DHS funding
 
 ---
 
