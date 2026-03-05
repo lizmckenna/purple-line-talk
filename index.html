@@ -392,6 +392,30 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* ============================================
+           PROGRESSIVE REVEAL (for wireless clicker)
+           ============================================ */
+        .fragment {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0.4s;
+            transform: translateY(8px);
+        }
+        .fragment.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0s;
+        }
+        /* Instant reveal for table rows */
+        .fragment-row {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .fragment-row.visible {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -626,21 +650,21 @@
             <h2>Three Key Findings</h2>
 
             <ol style="list-style: none; margin-top: 2rem;">
-                <li style="display: flex; align-items: baseline; margin-bottom: 1.5rem;">
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 1.5rem;">
                     <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 2rem; font-weight: 600; color: var(--accent); margin-right: 1rem; line-height: 1;">1</span>
                     <div>
                         <p style="font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 600; margin-bottom: 0.25rem;">Attrition (exit)</p>
                         <p class="small-text">70% of participants exit after a single engagement</p>
                     </div>
                 </li>
-                <li style="display: flex; align-items: baseline; margin-bottom: 1.5rem;">
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 1.5rem;">
                     <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 2rem; font-weight: 600; color: var(--accent); margin-right: 1rem; line-height: 1;">2</span>
                     <div>
                         <p style="font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 600; margin-bottom: 0.25rem;">DDX voter contact reach & contact rate (participation)</p>
                         <p class="small-text">IPOs reached voters missed by all other programs</p>
                     </div>
                 </li>
-                <li style="display: flex; align-items: baseline; margin-bottom: 1.5rem;">
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 1.5rem;">
                     <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 2rem; font-weight: 600; color: var(--accent); margin-right: 1rem; line-height: 1;">3</span>
                     <div>
                         <p style="font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 600; margin-bottom: 0.25rem;">Leadership density & policy influence (voice)</p>
@@ -1041,10 +1065,10 @@
 
             <div style="text-align: left; max-width: 700px; margin: 0 auto;">
                 <ul class="bullet-list" style="font-size: clamp(1rem, 1.6vw, 1.15rem);">
-                    <li>Scaled participation alone does not generate civic power</li>
-                    <li>Structured teams of highly committed leaders convert mobilization into governing influence</li>
-                    <li>The thresholds for local and state influence are achievable—hundreds, not thousands</li>
-                    <li>State-based organizations with leadership density are the bulwark against authoritarian encroachment</li>
+                    <li class="fragment">Scaled participation alone does not generate civic power</li>
+                    <li class="fragment">Structured teams of highly committed leaders convert mobilization into governing influence</li>
+                    <li class="fragment">The thresholds for local and state influence are achievable—hundreds, not thousands</li>
+                    <li class="fragment">State-based organizations with leadership density are the bulwark against authoritarian encroachment</li>
                 </ul>
             </div>
 
@@ -1178,7 +1202,28 @@
             return false; // All revealed
         }
 
-        // Keyboard navigation with protest reveal on slide 2
+        // Get fragments for current slide
+        function getSlideFragments(slide) {
+            return slide ? [...slide.querySelectorAll('.fragment:not(.visible)')] : [];
+        }
+
+        // Reveal next fragment on current slide
+        function revealNextFragment(slide) {
+            const fragments = getSlideFragments(slide);
+            if (fragments.length > 0) {
+                fragments[0].classList.add('visible');
+                return true;
+            }
+            return false;
+        }
+
+        // Reset fragments when leaving a slide (going backwards)
+        function resetSlideFragments(slide) {
+            if (!slide) return;
+            slide.querySelectorAll('.fragment.visible').forEach(f => f.classList.remove('visible'));
+        }
+
+        // Keyboard navigation with progressive reveal
         document.addEventListener('keydown', (e) => {
             const currentSlide = [...slides].find(slide => {
                 const rect = slide.getBoundingClientRect();
@@ -1188,14 +1233,22 @@
 
             if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
                 e.preventDefault();
-                // On slide 2, reveal photos one by one before moving to next slide
+                // Priority 1: Reveal protest photos on slide 2
                 if (currentSlide && currentSlide.id === 'slide-2' && protestIndex < protestThumbs.length) {
                     revealNextProtest();
-                } else if (currentIndex < slides.length - 1) {
+                }
+                // Priority 2: Reveal fragments on current slide
+                else if (currentSlide && revealNextFragment(currentSlide)) {
+                    // Fragment revealed, stay on slide
+                }
+                // Priority 3: Move to next slide
+                else if (currentIndex < slides.length - 1) {
                     slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
                 }
             } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
                 e.preventDefault();
+                // Reset fragments on current slide before going back
+                resetSlideFragments(currentSlide);
                 if (currentIndex > 0) {
                     slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
                 }
@@ -1208,6 +1261,18 @@
                 revealNextProtest();
             });
         }
+
+        // Auto-reveal fragments when scrolling to a slide (for direct navigation)
+        const fragmentObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    // Reset fragments when leaving slide
+                    resetSlideFragments(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        slides.forEach(slide => fragmentObserver.observe(slide));
     </script>
 
 </body>
