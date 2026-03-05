@@ -387,6 +387,11 @@
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -395,10 +400,10 @@
     <nav class="section-nav" id="sectionNav">
         <a href="#slide-1" data-section="title">Title</a>
         <a href="#slide-2" data-section="theory">Theory</a>
-        <a href="#slide-5" data-section="methods">Methods</a>
-        <a href="#slide-6" data-section="findings">Findings</a>
-        <a href="#slide-13" data-section="implications">Implications</a>
-        <a href="#slide-15" data-section="conclusions">Conclusions</a>
+        <a href="#slide-6" data-section="methods">Methods</a>
+        <a href="#slide-7" data-section="findings">Findings</a>
+        <a href="#slide-14" data-section="implications">Implications</a>
+        <a href="#slide-16" data-section="conclusions">Conclusions</a>
     </nav>
 
     <nav class="nav-dots" id="navDots"></nav>
@@ -424,8 +429,8 @@
     </section>
 
     <!-- ============================================
-         SLIDE 2: THE PARADOX (SITUATION)
-         A Paradox of Modern Politics
+         SLIDE 2: MASS PARTICIPATION
+         Photos appear one by one
          ============================================ -->
     <section class="slide" id="slide-2" data-slide="2" data-section="theory">
         <div class="corner corner-tl"></div>
@@ -434,55 +439,44 @@
         <div class="corner corner-br"></div>
 
         <div class="content wide">
-            <h2 style="text-align: center; margin-bottom: 2rem;">A Paradox of Modern Politics</h2>
+            <h2 style="text-align: left; margin-bottom: 1.5rem;">A Paradox of Modern Politics</h2>
 
-            <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: center;">
-                <!-- Left: Protest Photos Grid (3x2) -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 6px;">
-                    <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;">
-                        <img src="assets/iraq.webp" alt="Iraq War protests 2003" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.65rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Iraq 2003</span>
-                    </div>
-                    <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;">
-                        <img src="assets/arabspring.webp" alt="Arab Spring 2011" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.65rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Arab Spring 2011</span>
-                    </div>
-                    <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;">
-                        <img src="assets/occupy.webp" alt="Occupy Wall Street 2011" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.65rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Occupy 2011</span>
-                    </div>
-                    <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;">
-                        <img src="assets/indignados.webp" alt="Indignados Spain 2011" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.65rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Indignados 2011</span>
-                    </div>
-                    <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;">
-                        <img src="assets/junho.jpg" alt="Jornadas de Junho Brazil 2013" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.65rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Junho 2013</span>
-                    </div>
-                    <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px;">
-                        <img src="assets/nokings.jpeg" alt="No Kings protests 2025" style="width: 100%; height: 100%; object-fit: cover;">
-                        <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.65rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">No Kings 2025</span>
-                    </div>
+            <p style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1.1rem, 1.8vw, 1.35rem); font-style: italic; margin-bottom: 2rem; color: var(--text);">We live in an age of mass protest and mass participation.</p>
+
+            <!-- Protest Photos Grid - animated appearance -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; opacity: 0; animation: fadeIn 0.5s ease forwards; animation-delay: 0.3s;">
+                    <img src="assets/iraq.webp" alt="Iraq War protests 2003" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.7rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Iraq 2003</span>
                 </div>
-
-                <!-- Right: V-Dem Backsliding Chart -->
-                <div style="text-align: center;">
-                    <img src="assets/vdem_backsliding_web.png" alt="V-Dem Democracy Backsliding Chart" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; opacity: 0; animation: fadeIn 0.5s ease forwards; animation-delay: 0.6s;">
+                    <img src="assets/arabspring.webp" alt="Arab Spring 2011" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.7rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Arab Spring 2011</span>
                 </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 2.5rem;">
-                <p class="lead-text" style="margin-bottom: 0.75rem;"><strong>Fact 1:</strong> We live in an age of mass protest and mass participation</p>
-                <p class="lead-text" style="margin-bottom: 1.5rem;"><strong>Fact 2:</strong> At the same time, democracy is weakening globally</p>
-                <p style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 600; color: var(--accent);">Why does unprecedented participation produce so little political power?</p>
+                <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; opacity: 0; animation: fadeIn 0.5s ease forwards; animation-delay: 0.9s;">
+                    <img src="assets/occupy.webp" alt="Occupy Wall Street 2011" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.7rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Occupy 2011</span>
+                </div>
+                <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; opacity: 0; animation: fadeIn 0.5s ease forwards; animation-delay: 1.2s;">
+                    <img src="assets/indignados.webp" alt="Indignados Spain 2011" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.7rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Indignados 2011</span>
+                </div>
+                <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; opacity: 0; animation: fadeIn 0.5s ease forwards; animation-delay: 1.5s;">
+                    <img src="assets/junho.jpg" alt="Jornadas de Junho Brazil 2013" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.7rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">Junho 2013</span>
+                </div>
+                <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 4px; opacity: 0; animation: fadeIn 0.5s ease forwards; animation-delay: 1.8s;">
+                    <img src="assets/nokings.jpeg" alt="No Kings protests 2025" style="width: 100%; height: 100%; object-fit: cover;">
+                    <span style="position: absolute; bottom: 4px; left: 6px; font-size: 0.7rem; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500;">No Kings 2025</span>
+                </div>
             </div>
         </div>
         <span class="slide-number">2</span>
     </section>
 
     <!-- ============================================
-         SLIDE 3: THE PUZZLE (COMPLICATION)
-         Participation is up, civic power is not
+         SLIDE 3: BACKSLIDING
+         V-Dem autocratization + Bevins
          ============================================ -->
     <section class="slide" id="slide-3" data-slide="3" data-section="theory">
         <div class="corner corner-tl"></div>
@@ -490,19 +484,19 @@
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-        <div class="content">
-            <h2>Participation is surging, but civic power is not</h2>
+        <div class="content wide">
+            <h2 style="text-align: left; margin-bottom: 1.5rem;">At the same time, democracy is weakening globally</h2>
 
-            <p class="lead-text">The 2024 election had higher turnout than any election since 1960. The June 2025 "No Kings" protests were the largest civil action in American history. Yet movements struggle to translate participation into governing influence.</p>
-
-            <div class="evidence-grid">
-                <div class="evidence-card">
-                    <div class="evidence-stat">47%</div>
-                    <div class="evidence-label">Decline in nonviolent movement success rates since 2010 (Chenoweth 2020)</div>
+            <div style="display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 2.5rem; align-items: center;">
+                <!-- Left: V-Dem Autocratization Chart -->
+                <div style="opacity: 0; animation: fadeIn 0.6s ease forwards; animation-delay: 0.3s;">
+                    <img src="assets/vdem_autocratization.png" alt="V-Dem Autocratization Chart" style="width: 100%; border-radius: 4px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
                 </div>
-                <div class="evidence-card">
-                    <div class="evidence-stat">2,100</div>
-                    <div class="evidence-label">Cities with No Kings protests in June 2025 - largest civil action in U.S. history</div>
+
+                <!-- Right: Bevins book + takeaway -->
+                <div style="opacity: 0; animation: fadeIn 0.6s ease forwards; animation-delay: 1s;">
+                    <img src="assets/bevins.png" alt="If We Burn by Vincent Bevins" style="width: 100%; max-width: 280px; border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); margin-bottom: 1.5rem;">
+                    <p style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.5; color: var(--text);">This pattern—<strong style="color: var(--accent);">high participation, low civic power</strong>—is a global phenomenon.</p>
                 </div>
             </div>
         </div>
@@ -510,9 +504,24 @@
     </section>
 
     <!-- ============================================
-         SLIDE 4: RESEARCH QUESTION
+         SLIDE 4: THE QUESTION
          ============================================ -->
     <section class="slide" id="slide-4" data-slide="4" data-section="theory">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content centered">
+            <p style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; color: var(--accent); line-height: 1.4;">Why does unprecedented participation produce so little political power?</p>
+        </div>
+        <span class="slide-number">4</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 5: RESEARCH DATA
+         ============================================ -->
+    <section class="slide" id="slide-5" data-slide="5" data-section="theory">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -545,13 +554,13 @@
                 </div>
             </div>
         </div>
-        <span class="slide-number">4</span>
+        <span class="slide-number">5</span>
     </section>
 
     <!-- ============================================
-         SLIDE 5: METHODS
+         SLIDE 6: METHODS
          ============================================ -->
-    <section class="slide" id="slide-5" data-slide="5" data-section="methods">
+    <section class="slide" id="slide-6" data-slide="6" data-section="methods">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -567,13 +576,13 @@
 
             <p class="lead-text">Participatory action project: organizations co-developed metrics and tracked their own leadership density over time.</p>
         </div>
-        <span class="slide-number">5</span>
+        <span class="slide-number">6</span>
     </section>
 
     <!-- ============================================
-         SLIDE 6: FINDING - LEADERSHIP DENSITY THRESHOLDS
+         SLIDE 7: FINDING - LEADERSHIP DENSITY THRESHOLDS
          ============================================ -->
-    <section class="slide" id="slide-6" data-slide="6" data-section="findings">
+    <section class="slide" id="slide-7" data-slide="7" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -613,13 +622,13 @@
 
             <p class="table-note">* Consistent across red, blue, and purple states</p>
         </div>
-        <span class="slide-number">6</span>
+        <span class="slide-number">7</span>
     </section>
 
     <!-- ============================================
-         SLIDE 7: FINDING - PURPLE LINE CHART
+         SLIDE 8: FINDING - PURPLE LINE CHART
          ============================================ -->
-    <section class="slide" id="slide-7" data-slide="7" data-section="findings">
+    <section class="slide" id="slide-8" data-slide="8" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -637,14 +646,14 @@
 
             <p class="small-text">Grey = one-time participants | Blue = 2-4 activities | Purple = 5+ activities (committed leaders)</p>
         </div>
-        <span class="slide-number">7</span>
+        <span class="slide-number">8</span>
     </section>
 
     <!-- ============================================
-         SLIDE 8: FINDING - EXIT / ATTRITION
+         SLIDE 9: FINDING - EXIT / ATTRITION
          Hirschman reference
          ============================================ -->
-    <section class="slide" id="slide-8" data-slide="8" data-section="findings">
+    <section class="slide" id="slide-9" data-slide="9" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -662,13 +671,13 @@
 
             <p class="small-text">Organizations with balanced organizing/mobilizing activities and local team structures showed higher retention rates.</p>
         </div>
-        <span class="slide-number">8</span>
+        <span class="slide-number">9</span>
     </section>
 
     <!-- ============================================
-         SLIDE 9: FINDING - DDX / BIDEN-HARRIS vs IPO
+         SLIDE 10: FINDING - DDX / BIDEN-HARRIS vs IPO
          ============================================ -->
-    <section class="slide" id="slide-9" data-slide="9" data-section="findings">
+    <section class="slide" id="slide-10" data-slide="10" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -695,13 +704,13 @@
                 </div>
             </div>
         </div>
-        <span class="slide-number">9</span>
+        <span class="slide-number">10</span>
     </section>
 
     <!-- ============================================
-         SLIDE 10: FINDING - NETWORK ANALYSIS
+         SLIDE 11: FINDING - NETWORK ANALYSIS
          ============================================ -->
-    <section class="slide" id="slide-10" data-slide="10" data-section="findings">
+    <section class="slide" id="slide-11" data-slide="11" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -719,13 +728,13 @@
 
             <p class="small-text">Example: Jason Dunkin (Down Home NC) organized residents to restore a local playground, elected first Black Sheriff in Granville County, and helped flip a NC House seat by 228 votes.</p>
         </div>
-        <span class="slide-number">10</span>
+        <span class="slide-number">11</span>
     </section>
 
     <!-- ============================================
-         SLIDE 11: THE CAKE
+         SLIDE 12: THE CAKE
          ============================================ -->
-    <section class="slide" id="slide-11" data-slide="11" data-section="findings">
+    <section class="slide" id="slide-12" data-slide="12" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -741,13 +750,13 @@
 
             <p class="lead-text" style="margin-top: 1.5rem;">When your organizing metric becomes cake...</p>
         </div>
-        <span class="slide-number">11</span>
+        <span class="slide-number">12</span>
     </section>
 
     <!-- ============================================
-         SLIDE 12: THEORY IN ACTION - FEBRUARY 2026
+         SLIDE 13: THEORY IN ACTION - FEBRUARY 2026
          ============================================ -->
-    <section class="slide" id="slide-12" data-slide="12" data-section="findings">
+    <section class="slide" id="slide-13" data-slide="13" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -785,13 +794,13 @@
                 </div>
             </div>
         </div>
-        <span class="slide-number">12</span>
+        <span class="slide-number">13</span>
     </section>
 
     <!-- ============================================
-         SLIDE 13: IMPLICATIONS
+         SLIDE 14: IMPLICATIONS
          ============================================ -->
-    <section class="slide" id="slide-13" data-slide="13" data-section="implications">
+    <section class="slide" id="slide-14" data-slide="14" data-section="implications">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -811,13 +820,13 @@
                 <li>Standardize data infrastructure to measure and advance power building</li>
             </ul>
         </div>
-        <span class="slide-number">13</span>
+        <span class="slide-number">14</span>
     </section>
 
     <!-- ============================================
-         SLIDE 14: CONTRIBUTIONS
+         SLIDE 15: CONTRIBUTIONS
          ============================================ -->
-    <section class="slide" id="slide-14" data-slide="14" data-section="implications">
+    <section class="slide" id="slide-15" data-slide="15" data-section="implications">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -833,14 +842,14 @@
                 <li><strong>Democratic backsliding:</strong> Muscular civic associations, not episodic mobilization, may be required to restore responsive governance</li>
             </ul>
         </div>
-        <span class="slide-number">14</span>
+        <span class="slide-number">15</span>
     </section>
 
     <!-- ============================================
-         SLIDE 15: CONCLUSIONS
+         SLIDE 16: CONCLUSIONS
          Stays up during Q&A
          ============================================ -->
-    <section class="slide" id="slide-15" data-slide="15" data-section="conclusions">
+    <section class="slide" id="slide-16" data-slide="16" data-section="conclusions">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -863,13 +872,13 @@
             <p class="author-name" style="margin-top: 1.5rem;">Elizabeth McKenna</p>
             <p class="author-affiliation">emckenna@hks.harvard.edu</p>
         </div>
-        <span class="slide-number">15</span>
+        <span class="slide-number">16</span>
     </section>
 
     <!-- ============================================
-         SLIDE 16: REFERENCES
+         SLIDE 17: REFERENCES
          ============================================ -->
-    <section class="slide" id="slide-16" data-slide="16" data-section="conclusions">
+    <section class="slide" id="slide-17" data-slide="17" data-section="conclusions">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -885,7 +894,7 @@
 
             <p class="small-text" style="margin-top: 1.5rem;">Full report: Cushman & McKenna, "Civic Power: The Role and Impact of Independent Political Organizations," September 2025</p>
         </div>
-        <span class="slide-number">16</span>
+        <span class="slide-number">17</span>
     </section>
 
     <script>
