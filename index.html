@@ -7,10 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* ===========================================
-           CSS CUSTOM PROPERTIES (THEME)
-           Change these to adjust the whole look
-           =========================================== */
         :root {
             --bg: #FAFAF8;
             --text: #1C1917;
@@ -21,9 +17,6 @@
             --border: #E7E5E4;
         }
 
-        /* ===========================================
-           BASE STYLES
-           =========================================== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html {
@@ -39,7 +32,6 @@
             height: 100%;
         }
 
-        /* Paper texture overlay */
         body::before {
             content: '';
             position: fixed;
@@ -49,9 +41,6 @@
             pointer-events: none;
         }
 
-        /* ===========================================
-           SLIDE CONTAINER
-           =========================================== */
         .slide {
             width: 100vw;
             height: 100vh;
@@ -66,22 +55,10 @@
             scroll-snap-align: start;
         }
 
-        .content {
-            max-width: 800px;
-            width: 100%;
-        }
+        .content { max-width: 800px; width: 100%; }
+        .content.centered { text-align: center; }
+        .content.wide { max-width: 950px; }
 
-        .content.centered {
-            text-align: center;
-        }
-
-        .content.wide {
-            max-width: 950px;
-        }
-
-        /* ===========================================
-           CORNER BRACKETS (Scholarly decoration)
-           =========================================== */
         .corner {
             position: absolute;
             width: 30px;
@@ -93,9 +70,6 @@
         .corner-bl { bottom: 2rem; left: 2rem; border-right: none; border-top: none; }
         .corner-br { bottom: 2rem; right: 2rem; border-left: none; border-top: none; }
 
-        /* ===========================================
-           TYPOGRAPHY
-           =========================================== */
         h1 {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: clamp(1.75rem, 4.5vw, 3rem);
@@ -112,9 +86,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .purple-text {
-            color: var(--accent);
-        }
+        .purple-text { color: var(--accent); }
 
         .subtitle {
             font-family: 'Source Serif 4', Georgia, serif;
@@ -138,9 +110,6 @@
             color: var(--text-secondary);
         }
 
-        /* ===========================================
-           TITLE SLIDE ELEMENTS
-           =========================================== */
         .divider {
             width: 60px;
             height: 3px;
@@ -160,9 +129,15 @@
             color: var(--text-secondary);
         }
 
-        /* ===========================================
-           EVIDENCE/STAT CARDS
-           =========================================== */
+        .venue-tag {
+            font-size: clamp(0.7rem, 1vw, 0.8rem);
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-top: 2.5rem;
+        }
+
         .evidence-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -191,7 +166,6 @@
             line-height: 1.4;
         }
 
-        /* Single large stat */
         .big-stat {
             text-align: center;
             padding: clamp(2rem, 4vw, 3rem);
@@ -214,9 +188,6 @@
             margin-top: 0.75rem;
         }
 
-        /* ===========================================
-           THRESHOLD TABLE
-           =========================================== */
         .threshold-table {
             width: 100%;
             margin-top: 1.5rem;
@@ -260,9 +231,6 @@
             margin-top: 1rem;
         }
 
-        /* ===========================================
-           BULLET LISTS
-           =========================================== */
         .bullet-list {
             list-style: none;
             margin-top: 1rem;
@@ -287,9 +255,6 @@
             border-radius: 50%;
         }
 
-        /* ===========================================
-           IMAGE PLACEHOLDER
-           =========================================== */
         .image-placeholder {
             background: var(--accent-light);
             border: 2px dashed var(--accent-muted);
@@ -310,17 +275,6 @@
             color: var(--text-secondary);
         }
 
-        /* Actual image styling */
-        .slide-image {
-            max-width: 100%;
-            max-height: 50vh;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-
-        /* ===========================================
-           TWO COLUMN LAYOUT
-           =========================================== */
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -329,9 +283,6 @@
             margin-top: 1.5rem;
         }
 
-        /* ===========================================
-           SLIDE NUMBER
-           =========================================== */
         .slide-number {
             position: absolute;
             bottom: 2rem;
@@ -341,9 +292,6 @@
             color: var(--text-secondary);
         }
 
-        /* ===========================================
-           NAVIGATION DOTS
-           =========================================== */
         .nav-dots {
             position: fixed;
             right: 1.5rem;
@@ -364,40 +312,30 @@
             transition: background 0.3s, transform 0.3s;
         }
 
-        .nav-dot:hover {
-            background: var(--accent-muted);
+        .nav-dot:hover { background: var(--accent-muted); }
+        .nav-dot.active { background: var(--accent); transform: scale(1.3); }
+
+        .reference-item {
+            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+            padding-left: 2rem;
+            text-indent: -2rem;
+            color: var(--text-secondary);
         }
 
-        .nav-dot.active {
-            background: var(--accent);
-            transform: scale(1.3);
-        }
-
-        /* ===========================================
-           RESPONSIVE
-           =========================================== */
         @media (max-width: 768px) {
-            .evidence-grid, .two-column {
-                grid-template-columns: 1fr;
-            }
-            .nav-dots {
-                display: none;
-            }
+            .evidence-grid, .two-column { grid-template-columns: 1fr; }
+            .nav-dots { display: none; }
         }
 
-        /* ===========================================
-           REDUCED MOTION
-           =========================================== */
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
+            html { scroll-behavior: auto; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation dots -->
     <nav class="nav-dots" id="navDots"></nav>
 
     <!-- ============================================
@@ -414,17 +352,40 @@
             <p class="subtitle">Sustaining Civic Power in the Age of Mass Protest</p>
             <div class="divider"></div>
             <p class="author-name">Elizabeth McKenna</p>
-            <p class="author-affiliation">Harvard Kennedy School</p>
             <p class="author-affiliation">emckenna@hks.harvard.edu</p>
+            <p class="venue-tag">Harvard Kennedy School</p>
         </div>
         <span class="slide-number">1</span>
     </section>
 
     <!-- ============================================
-         SLIDE 2: THE PUZZLE
-         Participation is up, civic power is not
+         SLIDE 2: LITERATURE REVIEW (SITUATION)
+         What we know about movements and power
          ============================================ -->
     <section class="slide" data-slide="2">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>Movement scholarship shows that resources, organization, and strategy condition collective action outcomes</h2>
+
+            <div class="image-placeholder">
+                <p class="label">[LITERATURE REVIEW PLACEHOLDER]</p>
+                <p class="instructions">Key citations: McAdam, Tarrow, Tilly (political process); McCarthy & Zald (resource mobilization); Chenoweth & Stephan (nonviolent resistance); Han (organizing vs. mobilizing)</p>
+            </div>
+
+            <p class="lead-text">Yet contemporary social movement research remains disproportionately anchored to protest head counts, leaving organizational mechanics and effects of mobilization under-specified.</p>
+        </div>
+        <span class="slide-number">2</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 3: THE PUZZLE (COMPLICATION)
+         Participation is up, civic power is not
+         ============================================ -->
+    <section class="slide" data-slide="3">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -446,14 +407,13 @@
                 </div>
             </div>
         </div>
-        <span class="slide-number">2</span>
+        <span class="slide-number">3</span>
     </section>
 
     <!-- ============================================
-         SLIDE 3: RESEARCH QUESTION / APPROACH
-         What explains the participation-power gap?
+         SLIDE 4: RESEARCH QUESTION
          ============================================ -->
-    <section class="slide" data-slide="3">
+    <section class="slide" data-slide="4">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -461,8 +421,6 @@
 
         <div class="content">
             <h2>What explains the participation-power gap?</h2>
-
-            <p class="lead-text">Movement scholarship shows resources, organization, and strategy condition collective action outcomes. Yet research remains anchored to protest head counts, leaving organizational mechanics under-specified.</p>
 
             <div class="big-stat">
                 <div class="big-stat-number">First</div>
@@ -488,13 +446,35 @@
                 </div>
             </div>
         </div>
-        <span class="slide-number">3</span>
+        <span class="slide-number">4</span>
     </section>
 
     <!-- ============================================
-         SLIDE 4: KEY FINDING - LEADERSHIP DENSITY
+         SLIDE 5: METHODS
          ============================================ -->
-    <section class="slide" data-slide="4">
+    <section class="slide" data-slide="5">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>Mixed methods combined participation microdata with qualitative observation</h2>
+
+            <div class="image-placeholder">
+                <p class="label">[METHODS PLACEHOLDER]</p>
+                <p class="instructions">Describe: CRM data from organizational platforms (EveryAction, Mobilize, Action Network); DDx voter file matching; qualitative fieldwork across 35 SMOs; participatory action research collaboration</p>
+            </div>
+
+            <p class="lead-text">Participatory action project: organizations co-developed metrics and tracked their own leadership density over time.</p>
+        </div>
+        <span class="slide-number">5</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 6: FINDING - LEADERSHIP DENSITY THRESHOLDS
+         ============================================ -->
+    <section class="slide" data-slide="6">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -534,62 +514,11 @@
 
             <p class="table-note">* Consistent across red, blue, and purple states</p>
         </div>
-        <span class="slide-number">4</span>
-    </section>
-
-    <!-- ============================================
-         SLIDE 5: THE PURPLE LINE VISUALIZATION
-         Show the actual chart + cake photo
-         ============================================ -->
-    <section class="slide" data-slide="5">
-        <div class="corner corner-tl"></div>
-        <div class="corner corner-tr"></div>
-        <div class="corner corner-bl"></div>
-        <div class="corner corner-br"></div>
-
-        <div class="content">
-            <h2>Organizations tracked "purple line" leaders over time</h2>
-
-            <p class="lead-text">Participatory action research: organizations co-developed this metric. The name comes from the color first used in longitudinal visualizations.</p>
-
-            <!-- TODO: Replace with actual purple line chart -->
-            <div class="image-placeholder">
-                <p class="label">[PURPLE LINE CHART]</p>
-                <p class="instructions">Insert Figure 11 or similar showing purple line growth over time</p>
-            </div>
-
-            <p class="small-text">Grey = one-time participants | Blue = 2-4 activities | Purple = 5+ activities (committed leaders)</p>
-        </div>
-        <span class="slide-number">5</span>
-    </section>
-
-    <!-- ============================================
-         SLIDE 6: THE CAKE PHOTO
-         Fun moment showing adoption
-         ============================================ -->
-    <section class="slide" data-slide="6">
-        <div class="corner corner-tl"></div>
-        <div class="corner corner-tr"></div>
-        <div class="corner corner-bl"></div>
-        <div class="corner corner-br"></div>
-
-        <div class="content centered">
-            <h2>Organizations adopted the metric</h2>
-
-            <!-- TODO: Replace with cake photo -->
-            <div class="image-placeholder">
-                <p class="label">[CAKE PHOTO]</p>
-                <p class="instructions">Insert photo of cake with purple line chart decoration</p>
-            </div>
-
-            <p class="lead-text" style="margin-top: 1.5rem;">When your organizing metric becomes cake...</p>
-        </div>
         <span class="slide-number">6</span>
     </section>
 
     <!-- ============================================
-         SLIDE 7: IPO VOTER CONTACT FINDINGS
-         Reaching voters others missed
+         SLIDE 7: FINDING - PURPLE LINE CHART
          ============================================ -->
     <section class="slide" data-slide="7">
         <div class="corner corner-tl"></div>
@@ -598,34 +527,128 @@
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <h2>IPOs reached 1.3 million voters that no other program contacted</h2>
+            <h2>Organizations tracked "purple line" leaders over time</h2>
 
-            <p class="lead-text">State-based independent political organizations uniquely reached voters missed by Harris-Walz and all other progressive programs in swing states.</p>
+            <p class="lead-text">The name comes from the color first used in longitudinal visualizations of this metric.</p>
 
-            <div class="two-column">
-                <div>
-                    <ul class="bullet-list">
-                        <li>More racially diverse targets</li>
-                        <li>Younger voters</li>
-                        <li>Lower propensity / infrequent voters</li>
-                        <li>Higher contact rates (9.3% vs 5.4%)</li>
-                        <li>Person-to-person outreach (doors, phones > texts)</li>
-                    </ul>
-                </div>
-                <div class="evidence-card">
-                    <div class="evidence-stat">1 in 8</div>
-                    <div class="evidence-label">Direct voter contacts by Democratic/progressive campaigns came from these IPOs</div>
-                </div>
+            <div class="image-placeholder">
+                <p class="label">[PURPLE LINE CHART]</p>
+                <p class="instructions">Insert Figure 11 or similar showing purple line growth over time</p>
             </div>
+
+            <p class="small-text">Grey = one-time participants | Blue = 2-4 activities | Purple = 5+ activities (committed leaders)</p>
         </div>
         <span class="slide-number">7</span>
     </section>
 
     <!-- ============================================
-         SLIDE 8: THEORY IN ACTION - FEBRUARY 2026
-         State-based organizing as bulwark against authoritarianism
+         SLIDE 8: FINDING - EXIT / ATTRITION
+         Hirschman reference
          ============================================ -->
     <section class="slide" data-slide="8">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>Most participants <em>exit</em> after a single engagement—but organizations can stem attrition through structure</h2>
+
+            <p class="lead-text">Across 13 IPOs, 70% of people who participated in 2024 showed up only once. This "exit" represents unrealized potential for collective power. What distinguishes organizations that retain and develop leaders?</p>
+
+            <div class="image-placeholder">
+                <p class="label">[ATTRITION / SANKEY CHART]</p>
+                <p class="instructions">Insert Figure 12 (aggregate grey/blue/purple) or Sankey flow charts (Figures 13-14) showing participant retention pathways</p>
+            </div>
+
+            <p class="small-text">Organizations with balanced organizing/mobilizing activities and local team structures showed higher retention rates.</p>
+        </div>
+        <span class="slide-number">8</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 9: FINDING - DDX / BIDEN-HARRIS vs IPO
+         ============================================ -->
+    <section class="slide" data-slide="9">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>IPOs reached 1.3 million voters that no other program contacted—including Harris-Walz</h2>
+
+            <p class="lead-text">Through a collaboration with the Democratic Data Exchange (DDx), we compared IPO voter contact programs with party, candidate, labor, and independent expenditure programs.</p>
+
+            <div class="image-placeholder">
+                <p class="label">[DDX COMPARISON CHART]</p>
+                <p class="instructions">Insert comparison visualization: IPO vs Harris-Walz targeting (race, age, propensity) and contact rates (9.3% vs 5.4%)</p>
+            </div>
+
+            <div class="evidence-grid">
+                <div class="evidence-card">
+                    <div class="evidence-stat">1 in 8</div>
+                    <div class="evidence-label">Democratic/progressive voter contacts came from IPOs</div>
+                </div>
+                <div class="evidence-card">
+                    <div class="evidence-stat">9.3% vs 5.4%</div>
+                    <div class="evidence-label">IPO contact rate vs other programs</div>
+                </div>
+            </div>
+        </div>
+        <span class="slide-number">9</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 10: FINDING - NETWORK ANALYSIS
+         ============================================ -->
+    <section class="slide" data-slide="10">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>Organizing leaders serve as hubs in networked structures of voluntary civic leadership</h2>
+
+            <p class="lead-text">Network analysis reveals which leaders are recruiting and developing others—the organizational infrastructure that converts participation into power.</p>
+
+            <div class="image-placeholder">
+                <p class="label">[NETWORK VISUALIZATION]</p>
+                <p class="instructions">Insert Figure 8 (Down Home NC network map) or similar showing hub-and-spoke organizing leader structures</p>
+            </div>
+
+            <p class="small-text">Example: Jason Dunkin (Down Home NC) organized residents to restore a local playground, elected first Black Sheriff in Granville County, and helped flip a NC House seat by 228 votes.</p>
+        </div>
+        <span class="slide-number">10</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 11: THE CAKE
+         ============================================ -->
+    <section class="slide" data-slide="11">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content centered">
+            <h2>Organizations adopted the metric</h2>
+
+            <div class="image-placeholder">
+                <p class="label">[CAKE PHOTO]</p>
+                <p class="instructions">Insert photo of cake with purple line chart decoration</p>
+            </div>
+
+            <p class="lead-text" style="margin-top: 1.5rem;">When your organizing metric becomes cake...</p>
+        </div>
+        <span class="slide-number">11</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 12: THEORY IN ACTION - FEBRUARY 2026
+         ============================================ -->
+    <section class="slide" data-slide="12">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -651,22 +674,48 @@
                 </div>
             </div>
 
-            <p class="small-text" style="margin-top: 1.5rem;"><strong>Also active:</strong> Maine (sustained vigilance post-ICE withdrawal) &bull; North Carolina (Siembra NC documenting ICE, training communities) &bull; Utah (bipartisan Medicaid defense) &bull; 8,000 faith leaders opposing DHS funding</p>
+            <p class="small-text" style="margin-top: 1.5rem;"><strong>Also active:</strong> Maine &bull; North Carolina (Siembra NC) &bull; Utah &bull; 8,000 faith leaders opposing DHS funding</p>
         </div>
-        <span class="slide-number">8</span>
+        <span class="slide-number">12</span>
     </section>
 
     <!-- ============================================
-         SLIDE 9: CONTRIBUTIONS
+         SLIDE 13: IMPLICATIONS
          ============================================ -->
-    <section class="slide" data-slide="9">
+    <section class="slide" data-slide="13">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <h2>Contributions to movement scholarship</h2>
+            <h2>Building 21st-century civic infrastructure requires the same investment we give to electoral mobilization</h2>
+
+            <div class="image-placeholder">
+                <p class="label">[IMPLICATIONS PLACEHOLDER]</p>
+                <p class="instructions">Consider: policy implications for funders/practitioners; theoretical implications for movement scholarship; methodological implications for future research</p>
+            </div>
+
+            <ul class="bullet-list">
+                <li>Design voter programs that expand the electorate and translate participation into governing power</li>
+                <li>Commit to building civic associations that hold government accountable</li>
+                <li>Standardize data infrastructure to measure and advance power building</li>
+            </ul>
+        </div>
+        <span class="slide-number">13</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 14: CONTRIBUTIONS
+         ============================================ -->
+    <section class="slide" data-slide="14">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>This study introduces leadership density theory and a new empirical frontier for movement research</h2>
 
             <ul class="bullet-list" style="font-size: clamp(1rem, 1.6vw, 1.15rem);">
                 <li><strong>Leadership density theory:</strong> The participation-power gap is more likely a function of organizational leader density than mobilization intensity</li>
@@ -675,14 +724,14 @@
                 <li><strong>Democratic backsliding:</strong> Muscular civic associations, not episodic mobilization, may be required to restore responsive governance</li>
             </ul>
         </div>
-        <span class="slide-number">9</span>
+        <span class="slide-number">14</span>
     </section>
 
     <!-- ============================================
-         SLIDE 10: CONCLUSIONS
+         SLIDE 15: CONCLUSIONS
          Stays up during Q&A
          ============================================ -->
-    <section class="slide" data-slide="10">
+    <section class="slide" data-slide="15">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -695,8 +744,8 @@
                 <ul class="bullet-list" style="font-size: clamp(1rem, 1.6vw, 1.15rem);">
                     <li>Scaled participation alone does not generate civic power</li>
                     <li>Structured teams of highly committed leaders convert mobilization into governing influence</li>
-                    <li>The thresholds for local and state influence are achievable - hundreds, not thousands</li>
-                    <li>Building 21st-century civic infrastructure requires the same investment we give to electoral mobilization</li>
+                    <li>The thresholds for local and state influence are achievable—hundreds, not thousands</li>
+                    <li>State-based organizations with leadership density are the bulwark against authoritarian encroachment</li>
                 </ul>
             </div>
 
@@ -705,14 +754,32 @@
             <p class="author-name" style="margin-top: 1.5rem;">Elizabeth McKenna</p>
             <p class="author-affiliation">emckenna@hks.harvard.edu</p>
         </div>
-        <span class="slide-number">10</span>
+        <span class="slide-number">15</span>
     </section>
 
     <!-- ============================================
-         JAVASCRIPT: Navigation
+         SLIDE 16: REFERENCES
          ============================================ -->
+    <section class="slide" data-slide="16">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>References</h2>
+
+            <div class="image-placeholder" style="padding: 1.5rem;">
+                <p class="label">[REFERENCES PLACEHOLDER]</p>
+                <p class="instructions">Add key citations: Chenoweth & Stephan (2011); Chenoweth (2020); Han (2014); Hirschman (1970); McAdam, Tarrow & Tilly; Han, McKenna & Oyakawa (2021)</p>
+            </div>
+
+            <p class="small-text" style="margin-top: 1.5rem;">Full report: Cushman & McKenna, "Civic Power: The Role and Impact of Independent Political Organizations," September 2025</p>
+        </div>
+        <span class="slide-number">16</span>
+    </section>
+
     <script>
-        // Generate navigation dots
         const slides = document.querySelectorAll('.slide');
         const navDots = document.getElementById('navDots');
 
@@ -725,7 +792,6 @@
             navDots.appendChild(dot);
         });
 
-        // Update active dot on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -739,7 +805,6 @@
 
         slides.forEach(slide => observer.observe(slide));
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             const currentSlide = [...slides].find(slide => {
                 const rect = slide.getBoundingClientRect();
