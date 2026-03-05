@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exit, Voice, and the Purple Line | Elizabeth McKenna</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ===========================================
+           CSS CUSTOM PROPERTIES (THEME)
+           Change these to adjust the whole look
+           =========================================== */
+        :root {
+            --bg: #FAFAF8;
+            --text: #1C1917;
+            --text-secondary: #57534E;
+            --accent: #7C3AED;
+            --accent-muted: #A78BFA;
+            --accent-light: #F5F3FF;
+            --border: #E7E5E4;
+        }
+
+        /* ===========================================
+           BASE STYLES
+           =========================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            height: 100%;
+        }
+
+        /* Paper texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        /* ===========================================
+           SLIDE CONTAINER
+           =========================================== */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: clamp(2rem, 6vw, 6rem);
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+
+        .content {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .content.centered {
+            text-align: center;
+        }
+
+        .content.wide {
+            max-width: 950px;
+        }
+
+        /* ===========================================
+           CORNER BRACKETS (Scholarly decoration)
+           =========================================== */
+        .corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--border);
+        }
+        .corner-tl { top: 2rem; left: 2rem; border-right: none; border-bottom: none; }
+        .corner-tr { top: 2rem; right: 2rem; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: 2rem; left: 2rem; border-right: none; border-top: none; }
+        .corner-br { bottom: 2rem; right: 2rem; border-left: none; border-top: none; }
+
+        /* ===========================================
+           TYPOGRAPHY
+           =========================================== */
+        h1 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: clamp(1.75rem, 4.5vw, 3rem);
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+        }
+
+        h2 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+        }
+
+        .purple-text {
+            color: var(--accent);
+        }
+
+        .subtitle {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .lead-text {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .small-text {
+            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+            color: var(--text-secondary);
+        }
+
+        /* ===========================================
+           TITLE SLIDE ELEMENTS
+           =========================================== */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-muted));
+            margin: 0 auto 2rem;
+        }
+
+        .author-name {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-affiliation {
+            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+            color: var(--text-secondary);
+        }
+
+        /* ===========================================
+           EVIDENCE/STAT CARDS
+           =========================================== */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(1rem, 2vw, 1.5rem);
+            margin-top: 1.5rem;
+        }
+
+        .evidence-card {
+            padding: clamp(1rem, 2vw, 1.5rem);
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        .evidence-stat {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .evidence-label {
+            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+            line-height: 1.4;
+        }
+
+        /* Single large stat */
+        .big-stat {
+            text-align: center;
+            padding: clamp(2rem, 4vw, 3rem);
+            background: var(--accent-light);
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .big-stat-number {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 600;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .big-stat-label {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+        }
+
+        /* ===========================================
+           THRESHOLD TABLE
+           =========================================== */
+        .threshold-table {
+            width: 100%;
+            margin-top: 1.5rem;
+            border-collapse: collapse;
+        }
+
+        .threshold-table th,
+        .threshold-table td {
+            padding: clamp(0.75rem, 1.5vw, 1rem);
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .threshold-table th {
+            font-size: clamp(0.7rem, 1vw, 0.8rem);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+        }
+
+        .threshold-table td {
+            font-size: clamp(0.9rem, 1.3vw, 1rem);
+        }
+
+        .threshold-table .number {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .threshold-table tr.highlight {
+            background: var(--accent-light);
+        }
+
+        .table-note {
+            font-size: clamp(0.75rem, 1vw, 0.85rem);
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        /* ===========================================
+           BULLET LISTS
+           =========================================== */
+        .bullet-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .bullet-list li {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            line-height: 1.6;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* ===========================================
+           IMAGE PLACEHOLDER
+           =========================================== */
+        .image-placeholder {
+            background: var(--accent-light);
+            border: 2px dashed var(--accent-muted);
+            border-radius: 8px;
+            padding: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            color: var(--accent);
+            margin: 1.5rem 0;
+        }
+
+        .image-placeholder .label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-placeholder .instructions {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Actual image styling */
+        .slide-image {
+            max-width: 100%;
+            max-height: 50vh;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        /* ===========================================
+           TWO COLUMN LAYOUT
+           =========================================== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 4vw, 3rem);
+            align-items: start;
+            margin-top: 1.5rem;
+        }
+
+        /* ===========================================
+           SLIDE NUMBER
+           =========================================== */
+        .slide-number {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===========================================
+           NAVIGATION DOTS
+           =========================================== */
+        .nav-dots {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 100;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .nav-dot:hover {
+            background: var(--accent-muted);
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+            transform: scale(1.3);
+        }
+
+        /* ===========================================
+           RESPONSIVE
+           =========================================== */
+        @media (max-width: 768px) {
+            .evidence-grid, .two-column {
+                grid-template-columns: 1fr;
+            }
+            .nav-dots {
+                display: none;
+            }
+        }
+
+        /* ===========================================
+           REDUCED MOTION
+           =========================================== */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation dots -->
+    <nav class="nav-dots" id="navDots"></nav>
+
+    <!-- ============================================
+         SLIDE 1: TITLE
+         ============================================ -->
+    <section class="slide" data-slide="1">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content centered">
+            <h1>Exit, Voice, and the <span class="purple-text">Purple Line</span></h1>
+            <p class="subtitle">Sustaining Civic Power in the Age of Mass Protest</p>
+            <div class="divider"></div>
+            <p class="author-name">Elizabeth McKenna</p>
+            <p class="author-affiliation">Harvard Kennedy School</p>
+            <p class="author-affiliation">emckenna@hks.harvard.edu</p>
+        </div>
+        <span class="slide-number">1</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 2: THE PUZZLE
+         Participation is up, civic power is not
+         ============================================ -->
+    <section class="slide" data-slide="2">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>Participation is surging, but civic power is not</h2>
+
+            <p class="lead-text">The 2024 election had higher turnout than any election since 1960. The June 2025 "No Kings" protests were the largest civil action in American history. Yet movements struggle to translate participation into governing influence.</p>
+
+            <div class="evidence-grid">
+                <div class="evidence-card">
+                    <div class="evidence-stat">47%</div>
+                    <div class="evidence-label">Decline in nonviolent movement success rates since 2010 (Chenoweth 2020)</div>
+                </div>
+                <div class="evidence-card">
+                    <div class="evidence-stat">2,100</div>
+                    <div class="evidence-label">Cities with No Kings protests in June 2025 - largest civil action in U.S. history</div>
+                </div>
+            </div>
+        </div>
+        <span class="slide-number">2</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 3: RESEARCH QUESTION / APPROACH
+         What explains the participation-power gap?
+         ============================================ -->
+    <section class="slide" data-slide="3">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>What explains the participation-power gap?</h2>
+
+            <p class="lead-text">Movement scholarship shows resources, organization, and strategy condition collective action outcomes. Yet research remains anchored to protest head counts, leaving organizational mechanics under-specified.</p>
+
+            <div class="big-stat">
+                <div class="big-stat-number">First</div>
+                <div class="big-stat-label">large-scale, cross-organizational database of political movement microdata</div>
+            </div>
+
+            <div class="evidence-grid">
+                <div class="evidence-card">
+                    <div class="evidence-stat">5M</div>
+                    <div class="evidence-label">Documented live voter contacts</div>
+                </div>
+                <div class="evidence-card">
+                    <div class="evidence-stat">215,704</div>
+                    <div class="evidence-label">Voter registrations</div>
+                </div>
+                <div class="evidence-card">
+                    <div class="evidence-stat">35</div>
+                    <div class="evidence-label">Social movement organizations</div>
+                </div>
+                <div class="evidence-card">
+                    <div class="evidence-stat">10</div>
+                    <div class="evidence-label">States studied</div>
+                </div>
+            </div>
+        </div>
+        <span class="slide-number">3</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 4: KEY FINDING - LEADERSHIP DENSITY
+         ============================================ -->
+    <section class="slide" data-slide="4">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>Leadership density predicts policy influence, not mobilization volume</h2>
+
+            <p class="lead-text">"Purple line" leaders: volunteers who participated in <strong>5+ organizational activities per year</strong> and who themselves <strong>recruit and develop new leaders</strong>.</p>
+
+            <table class="threshold-table">
+                <thead>
+                    <tr>
+                        <th>Purple Line Leaders</th>
+                        <th>Base Multiplier</th>
+                        <th>2025 Outcomes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight">
+                        <td class="number">200-700</td>
+                        <td>3x or larger</td>
+                        <td>Statewide or cross-local wins</td>
+                    </tr>
+                    <tr>
+                        <td class="number">80-100</td>
+                        <td>2x or larger</td>
+                        <td>Local campaign wins</td>
+                    </tr>
+                    <tr>
+                        <td class="number">&lt;50</td>
+                        <td>Any size</td>
+                        <td>No policy translation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="table-note">* Consistent across red, blue, and purple states</p>
+        </div>
+        <span class="slide-number">4</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 5: THE PURPLE LINE VISUALIZATION
+         Show the actual chart + cake photo
+         ============================================ -->
+    <section class="slide" data-slide="5">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>Organizations tracked "purple line" leaders over time</h2>
+
+            <p class="lead-text">Participatory action research: organizations co-developed this metric. The name comes from the color first used in longitudinal visualizations.</p>
+
+            <!-- TODO: Replace with actual purple line chart -->
+            <div class="image-placeholder">
+                <p class="label">[PURPLE LINE CHART]</p>
+                <p class="instructions">Insert Figure 11 or similar showing purple line growth over time</p>
+            </div>
+
+            <p class="small-text">Grey = one-time participants | Blue = 2-4 activities | Purple = 5+ activities (committed leaders)</p>
+        </div>
+        <span class="slide-number">5</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 6: THE CAKE PHOTO
+         Fun moment showing adoption
+         ============================================ -->
+    <section class="slide" data-slide="6">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content centered">
+            <h2>Organizations adopted the metric</h2>
+
+            <!-- TODO: Replace with cake photo -->
+            <div class="image-placeholder">
+                <p class="label">[CAKE PHOTO]</p>
+                <p class="instructions">Insert photo of cake with purple line chart decoration</p>
+            </div>
+
+            <p class="lead-text" style="margin-top: 1.5rem;">When your organizing metric becomes cake...</p>
+        </div>
+        <span class="slide-number">6</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 7: IPO VOTER CONTACT FINDINGS
+         Reaching voters others missed
+         ============================================ -->
+    <section class="slide" data-slide="7">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>IPOs reached 1.3 million voters that no other program contacted</h2>
+
+            <p class="lead-text">State-based independent political organizations uniquely reached voters missed by Harris-Walz and all other progressive programs in swing states.</p>
+
+            <div class="two-column">
+                <div>
+                    <ul class="bullet-list">
+                        <li>More racially diverse targets</li>
+                        <li>Younger voters</li>
+                        <li>Lower propensity / infrequent voters</li>
+                        <li>Higher contact rates (9.3% vs 5.4%)</li>
+                        <li>Person-to-person outreach (doors, phones > texts)</li>
+                    </ul>
+                </div>
+                <div class="evidence-card">
+                    <div class="evidence-stat">1 in 8</div>
+                    <div class="evidence-label">Direct voter contacts by Democratic/progressive campaigns came from these IPOs</div>
+                </div>
+            </div>
+        </div>
+        <span class="slide-number">7</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 8: CONTRIBUTIONS
+         ============================================ -->
+    <section class="slide" data-slide="8">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2>Contributions to movement scholarship</h2>
+
+            <ul class="bullet-list" style="font-size: clamp(1rem, 1.6vw, 1.15rem);">
+                <li><strong>Leadership density theory:</strong> The participation-power gap is more likely a function of organizational leader density than mobilization intensity</li>
+                <li><strong>New empirical frontier:</strong> Large-N participation microdata complements protest event datasets with leadership growth, retention, and team structure metrics</li>
+                <li><strong>Actionable thresholds:</strong> 200-700 purple line leaders for statewide influence; 80-100 for local wins</li>
+                <li><strong>Democratic backsliding:</strong> Muscular civic associations, not episodic mobilization, may be required to restore responsive governance</li>
+            </ul>
+        </div>
+        <span class="slide-number">8</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 9: CONCLUSIONS
+         Stays up during Q&A
+         ============================================ -->
+    <section class="slide" data-slide="9">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content centered">
+            <h2>Conclusions</h2>
+
+            <div style="text-align: left; max-width: 700px; margin: 0 auto;">
+                <ul class="bullet-list" style="font-size: clamp(1rem, 1.6vw, 1.15rem);">
+                    <li>Scaled participation alone does not generate civic power</li>
+                    <li>Structured teams of highly committed leaders convert mobilization into governing influence</li>
+                    <li>The thresholds for local and state influence are achievable - hundreds, not thousands</li>
+                    <li>Building 21st-century civic infrastructure requires the same investment we give to electoral mobilization</li>
+                </ul>
+            </div>
+
+            <div class="divider" style="margin-top: 2.5rem;"></div>
+
+            <p class="author-name" style="margin-top: 1.5rem;">Elizabeth McKenna</p>
+            <p class="author-affiliation">emckenna@hks.harvard.edu</p>
+        </div>
+        <span class="slide-number">9</span>
+    </section>
+
+    <!-- ============================================
+         JAVASCRIPT: Navigation
+         ============================================ -->
+    <script>
+        // Generate navigation dots
+        const slides = document.querySelectorAll('.slide');
+        const navDots = document.getElementById('navDots');
+
+        slides.forEach((slide, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            dot.addEventListener('click', () => {
+                slide.scrollIntoView({ behavior: 'smooth' });
+            });
+            navDots.appendChild(dot);
+        });
+
+        // Update active dot on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const slideNum = parseInt(entry.target.dataset.slide);
+                    document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                        dot.classList.toggle('active', i === slideNum - 1);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        slides.forEach(slide => observer.observe(slide));
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const currentSlide = [...slides].find(slide => {
+                const rect = slide.getBoundingClientRect();
+                return rect.top >= -100 && rect.top <= 100;
+            });
+            const currentIndex = currentSlide ? parseInt(currentSlide.dataset.slide) - 1 : 0;
+
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                if (currentIndex < slides.length - 1) {
+                    slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                if (currentIndex > 0) {
+                    slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
