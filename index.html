@@ -665,12 +665,43 @@
 
             <p class="lead-text">Across 13 IPOs, 70% of people who participated in 2024 showed up only once. This "exit" represents unrealized potential for collective power. What distinguishes organizations that retain and develop leaders?</p>
 
-            <div class="image-placeholder">
-                <p class="label">[ATTRITION / SANKEY CHART]</p>
-                <p class="instructions">Insert Figure 12 (aggregate grey/blue/purple) or Sankey flow charts (Figures 13-14) showing participant retention pathways</p>
+            <!-- Attrition visualization -->
+            <div style="display: grid; grid-template-columns: 180px 1fr; gap: 2rem; align-items: center; background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1rem 0;">
+                <!-- Donut chart -->
+                <div style="position: relative; width: 160px; height: 160px;">
+                    <svg viewBox="0 0 100 100" style="transform: rotate(-90deg);">
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#A8A29E" stroke-width="16" stroke-dasharray="167 251.3" stroke-dashoffset="0"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#3B82F6" stroke-width="16" stroke-dasharray="50.6 251.3" stroke-dashoffset="-167"/>
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="var(--accent)" stroke-width="16" stroke-dasharray="21 251.3" stroke-dashoffset="-217.6"/>
+                    </svg>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                        <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.75rem; font-weight: 700; color: #A8A29E; line-height: 1;">70%</div>
+                        <div style="font-size: 0.65rem; color: var(--text-secondary);">exit</div>
+                    </div>
+                </div>
+                <!-- Legend + org breakdown -->
+                <div>
+                    <div style="display: flex; gap: 1.5rem; margin-bottom: 0.75rem; font-size: 0.85rem;">
+                        <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 14px; height: 14px; background: #A8A29E; border-radius: 2px;"></div><span><strong>Grey</strong> 1 event (70%)</span></div>
+                        <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 14px; height: 14px; background: #3B82F6; border-radius: 2px;"></div><span><strong>Blue</strong> 2-4 (21%)</span></div>
+                        <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 14px; height: 14px; background: var(--accent); border-radius: 2px;"></div><span><strong>Purple</strong> 5+ (9%)</span></div>
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Top retention organizations:</div>
+                    <div style="display: grid; grid-template-columns: 110px 1fr 35px; gap: 0.3rem; font-size: 0.75rem;">
+                        <div style="font-weight: 500;">Down Home NC</div>
+                        <div style="height: 16px; display: flex; border-radius: 2px; overflow: hidden;"><div style="width: 56%; background: #A8A29E;"></div><div style="width: 28%; background: #3B82F6;"></div><div style="width: 16%; background: var(--accent);"></div></div>
+                        <div style="font-weight: 600; color: var(--accent); text-align: right;">16%</div>
+                        <div style="font-weight: 500;">ISAIAH (MN)</div>
+                        <div style="height: 16px; display: flex; border-radius: 2px; overflow: hidden;"><div style="width: 60%; background: #A8A29E;"></div><div style="width: 25%; background: #3B82F6;"></div><div style="width: 15%; background: var(--accent);"></div></div>
+                        <div style="font-weight: 600; color: var(--accent); text-align: right;">15%</div>
+                        <div style="font-weight: 500;">Voces (WI)</div>
+                        <div style="height: 16px; display: flex; border-radius: 2px; overflow: hidden;"><div style="width: 70%; background: #A8A29E;"></div><div style="width: 15%; background: #3B82F6;"></div><div style="width: 15%; background: var(--accent);"></div></div>
+                        <div style="font-weight: 600; color: var(--accent); text-align: right;">15%</div>
+                    </div>
+                </div>
             </div>
 
-            <p class="small-text">Organizations with balanced organizing/mobilizing activities and local team structures showed higher retention rates.</p>
+            <p class="small-text">N=41,625 participants across 19 IPOs. Organizations with balanced organizing/mobilizing activities showed higher retention.</p>
         </div>
         <span class="slide-number">9</span>
     </section>
