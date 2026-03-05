@@ -324,9 +324,64 @@
             color: var(--text-secondary);
         }
 
+        /* ============================================
+           SECTION NAVIGATION BAR
+           ============================================ */
+        .section-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: center;
+            gap: clamp(0.5rem, 2vw, 1.5rem);
+            padding: 0.6rem 1rem;
+        }
+
+        .section-nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.65rem, 1vw, 0.8rem);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .section-nav a:hover {
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+
+        .section-nav a.active {
+            color: var(--accent);
+            background: var(--accent-light);
+            font-weight: 600;
+        }
+
+        /* Adjust slide padding for nav bar */
+        .slide {
+            padding-top: clamp(3.5rem, 8vw, 5rem);
+        }
+
         @media (max-width: 768px) {
             .evidence-grid, .two-column { grid-template-columns: 1fr; }
             .nav-dots { display: none; }
+            .section-nav {
+                gap: 0.25rem;
+                padding: 0.5rem 0.5rem;
+            }
+            .section-nav a {
+                padding: 0.3rem 0.5rem;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -336,12 +391,22 @@
 </head>
 <body>
 
+    <!-- Section Navigation Bar -->
+    <nav class="section-nav" id="sectionNav">
+        <a href="#slide-1" data-section="title">Title</a>
+        <a href="#slide-2" data-section="theory">Theory</a>
+        <a href="#slide-5" data-section="methods">Methods</a>
+        <a href="#slide-6" data-section="findings">Findings</a>
+        <a href="#slide-13" data-section="implications">Implications</a>
+        <a href="#slide-15" data-section="conclusions">Conclusions</a>
+    </nav>
+
     <nav class="nav-dots" id="navDots"></nav>
 
     <!-- ============================================
          SLIDE 1: TITLE
          ============================================ -->
-    <section class="slide" data-slide="1">
+    <section class="slide" id="slide-1" data-slide="1" data-section="title">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -362,7 +427,7 @@
          SLIDE 2: LITERATURE REVIEW (SITUATION)
          What we know about movements and power
          ============================================ -->
-    <section class="slide" data-slide="2">
+    <section class="slide" id="slide-2" data-slide="2" data-section="theory">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -385,7 +450,7 @@
          SLIDE 3: THE PUZZLE (COMPLICATION)
          Participation is up, civic power is not
          ============================================ -->
-    <section class="slide" data-slide="3">
+    <section class="slide" id="slide-3" data-slide="3" data-section="theory">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -413,7 +478,7 @@
     <!-- ============================================
          SLIDE 4: RESEARCH QUESTION
          ============================================ -->
-    <section class="slide" data-slide="4">
+    <section class="slide" id="slide-4" data-slide="4" data-section="theory">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -452,7 +517,7 @@
     <!-- ============================================
          SLIDE 5: METHODS
          ============================================ -->
-    <section class="slide" data-slide="5">
+    <section class="slide" id="slide-5" data-slide="5" data-section="methods">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -474,7 +539,7 @@
     <!-- ============================================
          SLIDE 6: FINDING - LEADERSHIP DENSITY THRESHOLDS
          ============================================ -->
-    <section class="slide" data-slide="6">
+    <section class="slide" id="slide-6" data-slide="6" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -520,7 +585,7 @@
     <!-- ============================================
          SLIDE 7: FINDING - PURPLE LINE CHART
          ============================================ -->
-    <section class="slide" data-slide="7">
+    <section class="slide" id="slide-7" data-slide="7" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -545,7 +610,7 @@
          SLIDE 8: FINDING - EXIT / ATTRITION
          Hirschman reference
          ============================================ -->
-    <section class="slide" data-slide="8">
+    <section class="slide" id="slide-8" data-slide="8" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -569,7 +634,7 @@
     <!-- ============================================
          SLIDE 9: FINDING - DDX / BIDEN-HARRIS vs IPO
          ============================================ -->
-    <section class="slide" data-slide="9">
+    <section class="slide" id="slide-9" data-slide="9" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -602,7 +667,7 @@
     <!-- ============================================
          SLIDE 10: FINDING - NETWORK ANALYSIS
          ============================================ -->
-    <section class="slide" data-slide="10">
+    <section class="slide" id="slide-10" data-slide="10" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -626,7 +691,7 @@
     <!-- ============================================
          SLIDE 11: THE CAKE
          ============================================ -->
-    <section class="slide" data-slide="11">
+    <section class="slide" id="slide-11" data-slide="11" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -648,7 +713,7 @@
     <!-- ============================================
          SLIDE 12: THEORY IN ACTION - FEBRUARY 2026
          ============================================ -->
-    <section class="slide" data-slide="12">
+    <section class="slide" id="slide-12" data-slide="12" data-section="findings">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -688,7 +753,7 @@
     <!-- ============================================
          SLIDE 13: IMPLICATIONS
          ============================================ -->
-    <section class="slide" data-slide="13">
+    <section class="slide" id="slide-13" data-slide="13" data-section="implications">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -714,7 +779,7 @@
     <!-- ============================================
          SLIDE 14: CONTRIBUTIONS
          ============================================ -->
-    <section class="slide" data-slide="14">
+    <section class="slide" id="slide-14" data-slide="14" data-section="implications">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -737,7 +802,7 @@
          SLIDE 15: CONCLUSIONS
          Stays up during Q&A
          ============================================ -->
-    <section class="slide" data-slide="15">
+    <section class="slide" id="slide-15" data-slide="15" data-section="conclusions">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -766,7 +831,7 @@
     <!-- ============================================
          SLIDE 16: REFERENCES
          ============================================ -->
-    <section class="slide" data-slide="16">
+    <section class="slide" id="slide-16" data-slide="16" data-section="conclusions">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -788,7 +853,9 @@
     <script>
         const slides = document.querySelectorAll('.slide');
         const navDots = document.getElementById('navDots');
+        const sectionNavLinks = document.querySelectorAll('.section-nav a');
 
+        // Create nav dots
         slides.forEach((slide, index) => {
             const dot = document.createElement('div');
             dot.className = 'nav-dot';
@@ -798,12 +865,34 @@
             navDots.appendChild(dot);
         });
 
+        // Section nav click handler
+        sectionNavLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSlide = document.getElementById(targetId);
+                if (targetSlide) {
+                    targetSlide.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Update active states on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const slideNum = parseInt(entry.target.dataset.slide);
+                    const currentSection = entry.target.dataset.section;
+
+                    // Update nav dots
                     document.querySelectorAll('.nav-dot').forEach((dot, i) => {
                         dot.classList.toggle('active', i === slideNum - 1);
+                    });
+
+                    // Update section nav
+                    sectionNavLinks.forEach(link => {
+                        const linkSection = link.dataset.section;
+                        link.classList.toggle('active', linkSection === currentSection);
                     });
                 }
             });
@@ -811,6 +900,7 @@
 
         slides.forEach(slide => observer.observe(slide));
 
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             const currentSlide = [...slides].find(slide => {
                 const rect = slide.getBoundingClientRect();
