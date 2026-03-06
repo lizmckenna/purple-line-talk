@@ -536,14 +536,7 @@
         <a href="#slide-8" data-section="methods">Methods</a>
         <a href="#slide-12" data-section="results">Results</a>
         <a href="#slide-18" data-section="discussion">Discussion</a>
-        <a href="#slide-25" data-section="appendix">Appendix</a>
-    </nav>
-
-    <!-- Results sub-navigation -->
-    <nav class="results-subnav" id="resultsSubnav">
-        <a href="#slide-13" data-result="attrition">Attrition</a>
-        <a href="#slide-14" data-result="purple">Purple Line</a>
-        <a href="#slide-17" data-result="networks">Networks</a>
+        <a href="#slide-24" data-section="appendix">Appendix</a>
     </nav>
 
     <nav class="nav-dots" id="navDots"></nav>
@@ -770,7 +763,7 @@
                 <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 0.75rem; font-size: 0.8rem;">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <div style="width: 14px; height: 14px; background: linear-gradient(90deg, var(--accent), var(--accent-muted)); border-radius: 2px;"></div>
-                        <span style="font-weight: 600;">State IPOs</span>
+                        <span style="font-weight: 600;">POLIS IPOs</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <div style="width: 14px; height: 14px; background: #D6D3D1; border-radius: 2px;"></div>
@@ -817,7 +810,7 @@
                 </div>
             </div>
 
-            <p class="fragment small-text" style="margin-top: 0.75rem; font-style: italic;">DDx = Democratic Data Exchange · Includes Biden-Harris 2024 campaign · Comparison between state IPOs and other Democratic-aligned voter contact programs</p>
+            <p class="small-text" style="margin-top: 0.75rem; font-style: italic;">DDx = Democratic Data Exchange · Includes Biden-Harris 2024 campaign · Comparison between POLIS IPOs and other Democratic-aligned voter contact programs</p>
         </div>
         <span class="slide-number">8</span>
     </section>
@@ -864,7 +857,7 @@
                 </div>
                 <div class="fragment state-card-img">
                     <div style="width: 50px; height: 35px; background: var(--accent); border-radius: 3px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">OH</div>
-                    <div class="text"><strong>Ohio</strong> — In Springfield, a church event drew 1,000+ attendees; local organizations passed a City Commission resolution on ICE cooperation.</div>
+                    <div class="text"><strong>Ohio</strong> — In Springfield (to protect Haitian immigrants), a church event drew 1,000+ attendees; local organizations passed a City Commission resolution on ICE cooperation.</div>
                 </div>
                 <div class="fragment state-card-img">
                     <div style="width: 50px; height: 35px; background: var(--accent); border-radius: 3px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;">ME</div>
@@ -1075,89 +1068,125 @@
                 <p>Organizations tracked "purple line" leaders over time.</p>
             </div>
 
-            <!-- Facet chart: 6 orgs, 2x3 grid showing cumulative purple line growth -->
-            <div class="fragment" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
-                <!-- Civic OH (605 leaders) -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <span style="font-size: 0.7rem; font-weight: 600;">Civic OH</span>
-                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">605</span>
-                    </div>
-                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
-                        <path d="M0,38 C10,37 20,35 30,32 C40,28 50,22 60,15 C70,10 80,6 90,3 L100,2" fill="none" stroke="url(#purpleGrad1)" stroke-width="2.5"/>
-                        <circle cx="100" cy="2" r="3" fill="#7C3AED"/>
-                        <defs><linearGradient id="purpleGrad1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+            <!-- Legend -->
+            <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.75rem; font-size: 0.75rem;">
+                <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 20px; height: 3px; background: #A8A29E;"></div><span>Grey (1 event)</span></div>
+                <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 20px; height: 3px; background: #3B82F6;"></div><span>Blue (2-4)</span></div>
+                <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 20px; height: 3px; background: #7C3AED;"></div><span>Purple (5+)</span></div>
+            </div>
+
+            <!-- Facet chart: 6 orgs with grey/blue/purple lines and axes -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+                <!-- Civic OH -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+                    <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">Civic OH <span style="color: var(--text-secondary); font-weight: 400;">(n=4,760)</span></div>
+                    <svg viewBox="0 0 120 60" style="width: 100%; height: 70px;">
+                        <!-- Y-axis -->
+                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="18" y="10" font-size="6" fill="#78716C" text-anchor="end">3K</text>
+                        <text x="18" y="50" font-size="6" fill="#78716C" text-anchor="end">0</text>
+                        <!-- X-axis -->
+                        <line x1="20" y1="50" x2="115" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="20" y="57" font-size="5" fill="#78716C">Jan</text>
+                        <text x="115" y="57" font-size="5" fill="#78716C" text-anchor="end">Dec</text>
+                        <!-- Grey line (2984) -->
+                        <path d="M20,48 C40,46 60,40 80,30 C95,20 105,12 115,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <!-- Blue line (1171) -->
+                        <path d="M20,48 C40,47 60,44 80,38 C95,32 105,28 115,25" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <!-- Purple line (605) -->
+                        <path d="M20,48 C40,47 60,46 80,42 C95,38 105,36 115,33" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <circle cx="115" cy="33" r="3" fill="#7C3AED"/>
+                        <text x="115" y="30" font-size="7" fill="#7C3AED" text-anchor="middle" font-weight="600">605</text>
                     </svg>
-                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
                 </div>
-                <!-- FaithMN (599 leaders) -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <span style="font-size: 0.7rem; font-weight: 600;">FaithMN</span>
-                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">599</span>
-                    </div>
-                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
-                        <path d="M0,38 C10,36 20,33 30,29 C40,24 50,18 60,12 C70,8 80,5 90,3 L100,2" fill="none" stroke="url(#purpleGrad2)" stroke-width="2.5"/>
-                        <circle cx="100" cy="2" r="3" fill="#7C3AED"/>
-                        <defs><linearGradient id="purpleGrad2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                <!-- FaithMN -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+                    <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">FaithMN <span style="color: var(--text-secondary); font-weight: 400;">(n=3,946)</span></div>
+                    <svg viewBox="0 0 120 60" style="width: 100%; height: 70px;">
+                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="18" y="10" font-size="6" fill="#78716C" text-anchor="end">2.4K</text>
+                        <text x="18" y="50" font-size="6" fill="#78716C" text-anchor="end">0</text>
+                        <line x1="20" y1="50" x2="115" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="20" y="57" font-size="5" fill="#78716C">Jan</text>
+                        <text x="115" y="57" font-size="5" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M20,48 C40,45 60,38 80,28 C95,18 105,12 115,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <path d="M20,48 C40,47 60,43 80,36 C95,30 105,26 115,22" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <path d="M20,48 C40,47 60,45 80,40 C95,36 105,34 115,30" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <circle cx="115" cy="30" r="3" fill="#7C3AED"/>
+                        <text x="115" y="27" font-size="7" fill="#7C3AED" text-anchor="middle" font-weight="600">599</text>
                     </svg>
-                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
                 </div>
-                <!-- Rural Civic NC (592 leaders) -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <span style="font-size: 0.7rem; font-weight: 600;">Rural Civic NC</span>
-                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">592</span>
-                    </div>
-                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
-                        <path d="M0,38 C10,36 20,34 30,30 C40,25 50,19 60,13 C70,9 80,5 90,3 L100,2" fill="none" stroke="url(#purpleGrad3)" stroke-width="2.5"/>
-                        <circle cx="100" cy="2" r="3" fill="#7C3AED"/>
-                        <defs><linearGradient id="purpleGrad3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                <!-- Rural Civic NC -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+                    <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">Rural Civic NC <span style="color: var(--text-secondary); font-weight: 400;">(n=3,699)</span></div>
+                    <svg viewBox="0 0 120 60" style="width: 100%; height: 70px;">
+                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="18" y="10" font-size="6" fill="#78716C" text-anchor="end">2K</text>
+                        <text x="18" y="50" font-size="6" fill="#78716C" text-anchor="end">0</text>
+                        <line x1="20" y1="50" x2="115" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="20" y="57" font-size="5" fill="#78716C">Jan</text>
+                        <text x="115" y="57" font-size="5" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M20,48 C40,44 60,36 80,26 C95,16 105,10 115,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <path d="M20,48 C40,46 60,40 80,32 C95,24 105,20 115,16" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <path d="M20,48 C40,47 60,44 80,38 C95,34 105,32 115,28" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <circle cx="115" cy="28" r="3" fill="#7C3AED"/>
+                        <text x="115" y="25" font-size="7" fill="#7C3AED" text-anchor="middle" font-weight="600">592</text>
                     </svg>
-                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
                 </div>
-                <!-- FaithWI (271 leaders) -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <span style="font-size: 0.7rem; font-weight: 600;">FaithWI</span>
-                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">271</span>
-                    </div>
-                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
-                        <path d="M0,38 C10,37 20,35 30,32 C40,28 50,23 60,18 C70,14 80,10 90,7 L100,5" fill="none" stroke="url(#purpleGrad4)" stroke-width="2.5"/>
-                        <circle cx="100" cy="5" r="3" fill="#7C3AED"/>
-                        <defs><linearGradient id="purpleGrad4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                <!-- FaithWI -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+                    <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">FaithWI <span style="color: var(--text-secondary); font-weight: 400;">(n=1,853)</span></div>
+                    <svg viewBox="0 0 120 60" style="width: 100%; height: 70px;">
+                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="18" y="10" font-size="6" fill="#78716C" text-anchor="end">1.2K</text>
+                        <text x="18" y="50" font-size="6" fill="#78716C" text-anchor="end">0</text>
+                        <line x1="20" y1="50" x2="115" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="20" y="57" font-size="5" fill="#78716C">Jan</text>
+                        <text x="115" y="57" font-size="5" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M20,48 C40,44 60,36 80,26 C95,18 105,12 115,10" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <path d="M20,48 C40,46 60,42 80,36 C95,30 105,26 115,24" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <path d="M20,48 C40,47 60,45 80,42 C95,38 105,36 115,34" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <circle cx="115" cy="34" r="3" fill="#7C3AED"/>
+                        <text x="115" y="31" font-size="7" fill="#7C3AED" text-anchor="middle" font-weight="600">271</text>
                     </svg>
-                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
                 </div>
-                <!-- People Power MI (209 leaders) -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <span style="font-size: 0.7rem; font-weight: 600;">People Power MI</span>
-                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">209</span>
-                    </div>
-                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
-                        <path d="M0,38 C10,37 20,36 30,33 C40,30 50,26 60,21 C70,17 80,13 90,9 L100,7" fill="none" stroke="url(#purpleGrad5)" stroke-width="2.5"/>
-                        <circle cx="100" cy="7" r="3" fill="#7C3AED"/>
-                        <defs><linearGradient id="purpleGrad5" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                <!-- People Power MI -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+                    <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">People Power MI <span style="color: var(--text-secondary); font-weight: 400;">(n=1,593)</span></div>
+                    <svg viewBox="0 0 120 60" style="width: 100%; height: 70px;">
+                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="18" y="10" font-size="6" fill="#78716C" text-anchor="end">1.1K</text>
+                        <text x="18" y="50" font-size="6" fill="#78716C" text-anchor="end">0</text>
+                        <line x1="20" y1="50" x2="115" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="20" y="57" font-size="5" fill="#78716C">Jan</text>
+                        <text x="115" y="57" font-size="5" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M20,48 C40,44 60,36 80,26 C95,16 105,10 115,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <path d="M20,48 C40,47 60,44 80,40 C95,36 105,34 115,32" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <path d="M20,48 C40,47 60,46 80,43 C95,40 105,38 115,36" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <circle cx="115" cy="36" r="3" fill="#7C3AED"/>
+                        <text x="115" y="33" font-size="7" fill="#7C3AED" text-anchor="middle" font-weight="600">209</text>
                     </svg>
-                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
                 </div>
-                <!-- Immigrant Rights WI (86 leaders) -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                        <span style="font-size: 0.7rem; font-weight: 600;">Immigrant Rights WI</span>
-                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">86</span>
-                    </div>
-                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
-                        <path d="M0,38 C10,37 20,36 30,34 C40,32 50,29 60,26 C70,23 80,20 90,17 L100,15" fill="none" stroke="url(#purpleGrad6)" stroke-width="2.5"/>
-                        <circle cx="100" cy="15" r="3" fill="#7C3AED"/>
-                        <defs><linearGradient id="purpleGrad6" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                <!-- Immigrant Rights WI -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+                    <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">Immigrant Rights WI <span style="color: var(--text-secondary); font-weight: 400;">(n=585)</span></div>
+                    <svg viewBox="0 0 120 60" style="width: 100%; height: 70px;">
+                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="18" y="10" font-size="6" fill="#78716C" text-anchor="end">400</text>
+                        <text x="18" y="50" font-size="6" fill="#78716C" text-anchor="end">0</text>
+                        <line x1="20" y1="50" x2="115" y2="50" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="20" y="57" font-size="5" fill="#78716C">Jan</text>
+                        <text x="115" y="57" font-size="5" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M20,48 C40,42 60,32 80,22 C95,14 105,10 115,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <path d="M20,48 C40,47 60,44 80,40 C95,36 105,34 115,32" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <path d="M20,48 C40,47 60,46 80,44 C95,42 105,40 115,38" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <circle cx="115" cy="38" r="3" fill="#7C3AED"/>
+                        <text x="115" y="35" font-size="7" fill="#7C3AED" text-anchor="middle" font-weight="600">86</text>
                     </svg>
-                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
                 </div>
             </div>
 
-            <p class="fragment small-text" style="margin-top: 0.75rem; text-align: center;">Cumulative count of participants reaching 5+ activities, by organization (2024 cycle)</p>
+            <p class="small-text" style="margin-top: 0.75rem; text-align: center;">Cumulative participant counts by engagement level (2024 cycle)</p>
         </div>
         <span class="slide-number">14</span>
     </section>
@@ -1280,47 +1309,47 @@
         <div class="content">
             <h2>Proposed Mechanisms</h2>
 
-            <ol style="list-style: none; margin-top: 1rem;">
-                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.9rem;">
-                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--accent); margin-right: 0.75rem; line-height: 1;">1</span>
+            <ol style="list-style: none; margin-top: 0.75rem;">
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.7rem;">
+                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.3rem; font-weight: 600; color: var(--accent); margin-right: 0.6rem; line-height: 1;">1</span>
                     <div>
-                        <p style="font-size: clamp(0.95rem, 1.4vw, 1.1rem); font-weight: 600; margin-bottom: 0.15rem;">Culture of agency</p>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Sustained participation builds belief that collective action works</p>
+                        <p style="font-size: clamp(0.9rem, 1.3vw, 1.05rem); font-weight: 600; margin-bottom: 0.1rem;">Culture of agency</p>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary);">Sustained participation builds belief that collective action works—a self-reinforcing cycle</p>
                     </div>
                 </li>
-                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.9rem;">
-                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--accent); margin-right: 0.75rem; line-height: 1;">2</span>
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.7rem;">
+                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.3rem; font-weight: 600; color: var(--accent); margin-right: 0.6rem; line-height: 1;">2</span>
                     <div>
-                        <p style="font-size: clamp(0.95rem, 1.4vw, 1.1rem); font-weight: 600; margin-bottom: 0.15rem;">Credible commitment</p>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Officials respond differently to organizations they know will be there next cycle</p>
+                        <p style="font-size: clamp(0.9rem, 1.3vw, 1.05rem); font-weight: 600; margin-bottom: 0.1rem;">Relational bandwidth</p>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary);">Each leader sustains finite accountability relationships; below threshold, orgs bleed members after defeats</p>
                     </div>
                 </li>
-                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.9rem;">
-                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--accent); margin-right: 0.75rem; line-height: 1;">3</span>
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.7rem;">
+                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.3rem; font-weight: 600; color: var(--accent); margin-right: 0.6rem; line-height: 1;">3</span>
                     <div>
-                        <p style="font-size: clamp(0.95rem, 1.4vw, 1.1rem); font-weight: 600; margin-bottom: 0.15rem;">Relational bandwidth</p>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Ongoing relationships enable rapid coordination</p>
+                        <p style="font-size: clamp(0.9rem, 1.3vw, 1.05rem); font-weight: 600; margin-bottom: 0.1rem;">Signal credibility to power</p>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary);">Officials distinguish organized relationships from mobilized turnout; threshold marks when density becomes legible as durable threat</p>
                     </div>
                 </li>
-                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.9rem;">
-                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--accent); margin-right: 0.75rem; line-height: 1;">4</span>
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.7rem;">
+                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.3rem; font-weight: 600; color: var(--accent); margin-right: 0.6rem; line-height: 1;">4</span>
                     <div>
-                        <p style="font-size: clamp(0.95rem, 1.4vw, 1.1rem); font-weight: 600; margin-bottom: 0.15rem;">Local knowledge</p>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Embedded leaders know where the votes are and what issues resonate</p>
+                        <p style="font-size: clamp(0.9rem, 1.3vw, 1.05rem); font-weight: 600; margin-bottom: 0.1rem;">Redundancy and succession</p>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary);">Below threshold: org is 1-2 people deep; above threshold: survives burnout and targeting. Survival infrastructure.</p>
                     </div>
                 </li>
-                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.9rem;">
-                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--accent); margin-right: 0.75rem; line-height: 1;">5</span>
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.7rem;">
+                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.3rem; font-weight: 600; color: var(--accent); margin-right: 0.6rem; line-height: 1;">5</span>
                     <div>
-                        <p style="font-size: clamp(0.95rem, 1.4vw, 1.1rem); font-weight: 600; margin-bottom: 0.15rem;">Mobilization reserve</p>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Leaders can activate broader networks when needed—the base beneath the base</p>
+                        <p style="font-size: clamp(0.9rem, 1.3vw, 1.05rem); font-weight: 600; margin-bottom: 0.1rem;">Internal knowledge transmission</p>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary);">Tacit knowledge of local power lives in people; above threshold, organizational learning compounds over cycles</p>
                     </div>
                 </li>
-                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.9rem;">
-                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.4rem; font-weight: 600; color: var(--accent); margin-right: 0.75rem; line-height: 1;">6</span>
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.7rem;">
+                    <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.3rem; font-weight: 600; color: var(--accent); margin-right: 0.6rem; line-height: 1;">6</span>
                     <div>
-                        <p style="font-size: clamp(0.95rem, 1.4vw, 1.1rem); font-weight: 600; margin-bottom: 0.15rem;">Redundancy</p>
-                        <p style="font-size: 0.8rem; color: var(--text-secondary);">Multiple leaders create resilience when any one is targeted or exits</p>
+                        <p style="font-size: clamp(0.9rem, 1.3vw, 1.05rem); font-weight: 600; margin-bottom: 0.1rem;">Boundary-spanning capacity</p>
+                        <p style="font-size: 0.75rem; color: var(--text-secondary);">Statewide wins require coordinating across nodes; 200-700 range reflects minimum infrastructure to span territory</p>
                     </div>
                 </li>
             </ol>
@@ -1338,7 +1367,7 @@
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <h2 style="color: var(--accent);">Culture of Agency</h2>
+            <p style="font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 1rem; text-align: center;">On Mechanism #1: Culture of Agency</p>
 
             <div class="fragment pull-quote">
                 "I made a choice with my team that we were going to believe in people a lot more and center actual normal people in our work and ask them to do hard things and not even hard things, just necessary things. And since then, every single organizer has an organizing committee in specific districts that they're organizing. We're not just being a grab bag, seeing whoever comes toward us. We were like, no, we need to build power in this district."
@@ -1354,28 +1383,9 @@
     </section>
 
     <!-- ============================================
-         SLIDE 20: CREDIBLE COMMITMENT QUOTE
+         SLIDE 20: THREE THEORETICAL CONVERSATIONS
          ============================================ -->
     <section class="slide" id="slide-20" data-slide="20" data-section="discussion">
-        <div class="corner corner-tl"></div>
-        <div class="corner corner-tr"></div>
-        <div class="corner corner-bl"></div>
-        <div class="corner corner-br"></div>
-
-        <div class="content" style="max-width: 750px;">
-            <div class="pull-quote" style="font-size: clamp(0.95rem, 1.5vw, 1.1rem);">
-                "They do the work. They door-knock. They show up, they have monthly meetings to organize in the community to talk about different issues. So they're keeping the community engaged. [...] They're effective because they are building, they're building true people power, right? They're not waiting for a spark moment of legislation and then being like, 'Okay, we have to reorganize.' They're organizing 24/7, seven days a week, all year round. [...] And I think some groups sometimes they have spark moments and then they kind of lay low and then they come back around and lay low. So [this organization] is just staying in everybody's face."
-                <span class="attribution">— Municipal legislator, Missouri (D)</span>
-            </div>
-            <p class="small-text" style="margin-top: 1rem; text-align: center; color: var(--accent); font-weight: 500;">On what makes an organization influential: <em>credible commitment through sustained presence</em></p>
-        </div>
-        <span class="slide-number">20</span>
-    </section>
-
-    <!-- ============================================
-         SLIDE 21: THREE THEORETICAL CONVERSATIONS
-         ============================================ -->
-    <section class="slide" id="slide-21" data-slide="21" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1420,13 +1430,13 @@
                 </div>
             </div>
         </div>
-        <span class="slide-number">21</span>
+        <span class="slide-number">20</span>
     </section>
 
     <!-- ============================================
-         SLIDE 22: LIMITATIONS
+         SLIDE 21: LIMITATIONS
          ============================================ -->
-    <section class="slide" id="slide-22" data-slide="22" data-section="discussion">
+    <section class="slide" id="slide-21" data-slide="21" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1442,13 +1452,13 @@
                 <li class="fragment">Generalizability to unions, faith communities, and other forms remains open</li>
             </ul>
         </div>
-        <span class="slide-number">22</span>
+        <span class="slide-number">21</span>
     </section>
 
     <!-- ============================================
-         SLIDE 23: FUTURE DIRECTIONS
+         SLIDE 22: FUTURE DIRECTIONS
          ============================================ -->
-    <section class="slide" id="slide-23" data-slide="23" data-section="discussion">
+    <section class="slide" id="slide-22" data-slide="22" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1468,13 +1478,13 @@
                 <li class="fragment"><strong>Democratic backsliding:</strong> Does the redundancy mechanism become primary under authoritarian pressure?</li>
             </ul>
         </div>
-        <span class="slide-number">23</span>
+        <span class="slide-number">22</span>
     </section>
 
     <!-- ============================================
-         SLIDE 24: THANK YOU
+         SLIDE 23: THANK YOU
          ============================================ -->
-    <section class="slide" id="slide-24" data-slide="24" data-section="discussion">
+    <section class="slide" id="slide-23" data-slide="23" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1491,13 +1501,13 @@
             <p class="author-name">Elizabeth McKenna</p>
             <p class="author-affiliation">emckenna@hks.harvard.edu</p>
         </div>
-        <span class="slide-number">24</span>
+        <span class="slide-number">23</span>
     </section>
 
     <!-- ============================================
-         SLIDE 25: APPENDIX TITLE
+         SLIDE 24: APPENDIX TITLE
          ============================================ -->
-    <section class="slide" id="slide-25" data-slide="25" data-section="appendix">
+    <section class="slide" id="slide-24" data-slide="24" data-section="appendix">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1505,6 +1515,24 @@
 
         <div class="content centered">
             <h2 style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; color: var(--text-secondary);">Appendix</h2>
+        </div>
+    </section>
+
+    <!-- ============================================
+         APPENDIX: MO LEGISLATOR QUOTE
+         ============================================ -->
+    <section class="slide" id="slide-25" data-slide="25" data-section="appendix">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content" style="max-width: 750px;">
+            <p style="font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 1rem;">On credible commitment through sustained presence:</p>
+            <div class="pull-quote" style="font-size: clamp(0.9rem, 1.4vw, 1.05rem);">
+                "They do the work. They door-knock. They show up, they have monthly meetings to organize in the community to talk about different issues. So they're keeping the community engaged. [...] They're effective because they are building, they're building true people power, right? They're not waiting for a spark moment of legislation and then being like, 'Okay, we have to reorganize.' They're organizing 24/7, seven days a week, all year round. [...] And I think some groups sometimes they have spark moments and then they kind of lay low and then they come back around and lay low. So [this organization] is just staying in everybody's face."
+                <span class="attribution">— Municipal legislator, Missouri (D)</span>
+            </div>
         </div>
     </section>
 
@@ -1667,27 +1695,36 @@
 
         slides.forEach(slide => observer.observe(slide));
 
-        // Get fragments for current slide
-        function getSlideFragments(slide) {
-            return slide ? [...slide.querySelectorAll('.fragment:not(.visible)')] : [];
-        }
+        // Track current slide index
+        let currentSlideIndex = 0;
 
-        // Get theory columns for slide 21
-        function getTheoryColumns(slide) {
-            if (slide && slide.id === 'slide-21') {
-                return [...slide.querySelectorAll('.theory-col:not(.visible)')];
+        // Update current slide index based on scroll position
+        function updateCurrentSlide() {
+            const viewportCenter = window.innerHeight / 2;
+            for (let i = 0; i < slides.length; i++) {
+                const rect = slides[i].getBoundingClientRect();
+                if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
+                    currentSlideIndex = i;
+                    return slides[i];
+                }
             }
-            return [];
+            return slides[currentSlideIndex] || slides[0];
         }
 
-        // Reveal next fragment on current slide
+        // Get unrevealed fragments for a slide
+        function getUnrevealedFragments(slide) {
+            if (!slide) return [];
+            // Get theory columns (slide-20) OR regular fragments
+            if (slide.id === 'slide-20') {
+                const cols = [...slide.querySelectorAll('.theory-col:not(.visible)')];
+                if (cols.length > 0) return cols;
+            }
+            return [...slide.querySelectorAll('.fragment:not(.visible)')];
+        }
+
+        // Reveal next fragment, return true if revealed
         function revealNextFragment(slide) {
-            const columns = getTheoryColumns(slide);
-            if (columns.length > 0) {
-                columns[0].classList.add('visible');
-                return true;
-            }
-            const fragments = getSlideFragments(slide);
+            const fragments = getUnrevealedFragments(slide);
             if (fragments.length > 0) {
                 fragments[0].classList.add('visible');
                 return true;
@@ -1695,36 +1732,70 @@
             return false;
         }
 
-        // Reset fragments when leaving a slide
+        // Reset all fragments on a slide
         function resetSlideFragments(slide) {
             if (!slide) return;
             slide.querySelectorAll('.fragment.visible').forEach(f => f.classList.remove('visible'));
             slide.querySelectorAll('.theory-col.visible').forEach(c => c.classList.remove('visible'));
         }
 
-        // Keyboard navigation with progressive reveal
-        document.addEventListener('keydown', (e) => {
-            const currentSlide = [...slides].find(slide => {
-                const rect = slide.getBoundingClientRect();
-                return rect.top >= -100 && rect.top <= 100;
-            });
-            const currentIndex = currentSlide ? parseInt(currentSlide.dataset.slide) - 1 : 0;
+        // Go to next slide
+        function goToNextSlide() {
+            if (currentSlideIndex < slides.length - 1) {
+                currentSlideIndex++;
+                slides[currentSlideIndex].scrollIntoView({ behavior: 'smooth' });
+            }
+        }
 
-            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
-                e.preventDefault();
-                if (currentSlide && revealNextFragment(currentSlide)) {
-                    // Fragment revealed
-                } else if (currentIndex < slides.length - 1) {
-                    slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
-                }
-            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-                e.preventDefault();
-                resetSlideFragments(currentSlide);
-                if (currentIndex > 0) {
-                    slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
-                }
+        // Go to previous slide
+        function goToPrevSlide() {
+            const currentSlide = slides[currentSlideIndex];
+            resetSlideFragments(currentSlide);
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                slides[currentSlideIndex].scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Handle advance (keyboard, clicker, click)
+        function handleAdvance(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const currentSlide = updateCurrentSlide();
+            if (!revealNextFragment(currentSlide)) {
+                goToNextSlide();
+            }
+        }
+
+        // Handle retreat
+        function handleRetreat(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            goToPrevSlide();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            // Forward: Arrow Down, Right, Space, Page Down, Enter
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'Enter') {
+                handleAdvance(e);
+            }
+            // Backward: Arrow Up, Left, Page Up, Backspace
+            else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
+                handleRetreat(e);
             }
         });
+
+        // Click navigation (for touch/mouse, but not on links)
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('a, button, nav, .nav-dots')) return;
+            handleAdvance(e);
+        });
+
+        // Update current slide on scroll
+        window.addEventListener('scroll', () => {
+            updateCurrentSlide();
+        }, { passive: true });
 
         // Reset fragments when leaving slide
         const fragmentObserver = new IntersectionObserver((entries) => {
