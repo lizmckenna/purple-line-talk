@@ -719,7 +719,7 @@
             <div class="fragment" style="background: white; border: 1px solid var(--border); border-radius: 12px; padding: 2rem; max-width: 700px; margin: 0 auto;">
                 <h3 style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1.3rem, 2.5vw, 1.75rem); font-weight: 600; color: var(--accent); margin-bottom: 1rem;">POLIS Dataset</h3>
                 <p style="font-size: clamp(0.9rem, 1.4vw, 1.05rem); color: var(--text-secondary); margin-bottom: 0.25rem;">Participation, Organizing, and Local Influence Study</p>
-                <p style="font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.6; margin-top: 1rem;">Tracks the organizational infrastructure between civic participation and political power</p>
+                <p style="font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.6; margin-top: 1rem;">Tracks the organizational infrastructure linking civic participation and political power</p>
             </div>
 
             <div class="fragment" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
@@ -1203,7 +1203,7 @@
 
         <div class="content wide">
             <div class="statement-box">
-                <p>Leadership density is associated with policy influence (not mobilization volume).</p>
+                <p>Leadership density (not mobilization volume) is associated with policy influence.</p>
             </div>
 
             <table class="threshold-table fragment" style="margin-top: 2rem;">
@@ -1294,8 +1294,13 @@
                 </div>
             </div>
 
-            <!-- Interactive Network SVG -->
-            <div class="fragment" style="display: flex; justify-content: center; align-items: center;">
+            <!-- Full Network Image (first click) -->
+            <div class="fragment" style="display: flex; justify-content: center; align-items: center; position: relative;">
+                <img src="assets/AAMO-recruitment-network.png" alt="Full Recruitment Network" style="max-width: 100%; max-height: 55vh; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+            </div>
+
+            <!-- Interactive Network SVG (second click - zoom to Sasha) -->
+            <div class="fragment" style="display: flex; justify-content: center; align-items: center; margin-top: -55vh; position: relative; z-index: 10; background: var(--bg);">
                 <svg id="networkGraph" viewBox="0 0 800 500" style="width: 100%; max-width: 900px; height: auto; min-height: 400px;">
                     <style>
                         .network-node { cursor: pointer; transition: transform 0.2s, filter 0.2s; }
@@ -1488,7 +1493,7 @@
                     <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.5rem; font-weight: 600; color: var(--accent); margin-right: 0.75rem; line-height: 1;">4</span>
                     <div>
                         <p style="font-size: clamp(1rem, 1.5vw, 1.2rem); font-weight: 600; margin-bottom: 0.15rem;">Redundancy and succession</p>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Below threshold: org is 1-2 people deep; above threshold: survives burnout and targeting. Survival infrastructure.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Below threshold: org is 1-2 people deep; above threshold: survives burnout and targeting</p>
                     </div>
                 </li>
                 <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 0.85rem;">
@@ -1502,7 +1507,7 @@
                     <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.5rem; font-weight: 600; color: var(--accent); margin-right: 0.75rem; line-height: 1;">6</span>
                     <div>
                         <p style="font-size: clamp(1rem, 1.5vw, 1.2rem); font-weight: 600; margin-bottom: 0.15rem;">Boundary-spanning capacity</p>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Statewide wins require coordinating across nodes (&gt;200 range reflects minimum infrastructure to span territory)</p>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Statewide wins require coordinating across nodes (&gt;200 may reflect minimum infrastructure to span territory)</p>
                     </div>
                 </li>
             </ol>
