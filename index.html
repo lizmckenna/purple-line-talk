@@ -1075,110 +1075,105 @@
                 <div style="display: flex; align-items: center; gap: 0.5rem;"><div style="width: 24px; height: 4px; background: #7C3AED;"></div><span>Purple (5+)</span></div>
             </div>
 
-            <!-- Facet chart: 6 orgs with grey/blue/purple lines and axes -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+            <!-- Facet chart: 6 orgs with grey/blue/purple lines -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
                 <!-- Civic OH -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
-                    <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Civic OH <span style="color: var(--text-secondary); font-weight: 400;">(n=4,760)</span></div>
-                    <svg viewBox="0 0 130 65" style="width: 100%; height: 100px;">
-                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <line x1="20" y1="50" x2="125" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <text x="20" y="60" font-size="8" fill="#78716C">Jan</text>
-                        <text x="125" y="60" font-size="8" fill="#78716C" text-anchor="end">Dec</text>
-                        <!-- Grey line -->
-                        <path d="M20,48 C40,46 60,40 80,30 C95,20 105,12 115,8" fill="none" stroke="#A8A29E" stroke-width="2.5"/>
-                        <text x="98" y="5" font-size="9" fill="#A8A29E" font-weight="600">2,984</text>
-                        <!-- Blue line -->
-                        <path d="M20,48 C40,47 60,44 80,38 C95,32 105,28 115,25" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
-                        <text x="98" y="22" font-size="9" fill="#3B82F6" font-weight="600">1,171</text>
-                        <!-- Purple line -->
-                        <path d="M20,48 C40,47 60,46 80,42 C95,38 105,36 115,33" fill="none" stroke="#7C3AED" stroke-width="3"/>
-                        <text x="98" y="38" font-size="9" fill="#7C3AED" font-weight="700">605</text>
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Civic OH <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.85rem;">(4,760)</span></div>
+                    <svg viewBox="0 0 150 55" style="width: 100%; height: 85px;">
+                        <line x1="15" y1="8" x2="15" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <line x1="15" y1="42" x2="100" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="15" y="50" font-size="7" fill="#78716C">Jan</text>
+                        <text x="100" y="50" font-size="7" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M15,40 C35,38 55,32 75,22 C85,14 92,10 97,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <text x="105" y="10" font-size="8" fill="#A8A29E" font-weight="600">2,984</text>
+                        <path d="M15,40 C35,39 55,36 75,30 C85,26 92,22 97,20" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="105" y="22" font-size="8" fill="#3B82F6" font-weight="600">1,171</text>
+                        <path d="M15,40 C35,39 55,38 75,34 C85,31 92,29 97,27" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <text x="105" y="30" font-size="8" fill="#7C3AED" font-weight="700">605</text>
                     </svg>
                 </div>
                 <!-- FaithMN -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
-                    <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">FaithMN <span style="color: var(--text-secondary); font-weight: 400;">(n=3,946)</span></div>
-                    <svg viewBox="0 0 130 65" style="width: 100%; height: 100px;">
-                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <line x1="20" y1="50" x2="125" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <text x="20" y="60" font-size="8" fill="#78716C">Jan</text>
-                        <text x="125" y="60" font-size="8" fill="#78716C" text-anchor="end">Dec</text>
-                        <path d="M20,48 C40,45 60,38 80,28 C95,18 105,12 115,8" fill="none" stroke="#A8A29E" stroke-width="2.5"/>
-                        <text x="98" y="5" font-size="9" fill="#A8A29E" font-weight="600">2,387</text>
-                        <path d="M20,48 C40,47 60,43 80,36 C95,30 105,26 115,22" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
-                        <text x="98" y="19" font-size="9" fill="#3B82F6" font-weight="600">959</text>
-                        <path d="M20,48 C40,47 60,45 80,40 C95,36 105,34 115,30" fill="none" stroke="#7C3AED" stroke-width="3"/>
-                        <text x="98" y="35" font-size="9" fill="#7C3AED" font-weight="700">599</text>
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">FaithMN <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.85rem;">(3,946)</span></div>
+                    <svg viewBox="0 0 150 55" style="width: 100%; height: 85px;">
+                        <line x1="15" y1="8" x2="15" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <line x1="15" y1="42" x2="100" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="15" y="50" font-size="7" fill="#78716C">Jan</text>
+                        <text x="100" y="50" font-size="7" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M15,40 C35,37 55,30 75,20 C85,12 92,9 97,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <text x="105" y="10" font-size="8" fill="#A8A29E" font-weight="600">2,387</text>
+                        <path d="M15,40 C35,38 55,34 75,26 C85,21 92,18 97,16" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="105" y="18" font-size="8" fill="#3B82F6" font-weight="600">959</text>
+                        <path d="M15,40 C35,39 55,36 75,30 C85,27 92,25 97,24" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <text x="105" y="27" font-size="8" fill="#7C3AED" font-weight="700">599</text>
                     </svg>
                 </div>
                 <!-- Rural Civic NC -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
-                    <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Rural Civic NC <span style="color: var(--text-secondary); font-weight: 400;">(n=3,699)</span></div>
-                    <svg viewBox="0 0 130 65" style="width: 100%; height: 100px;">
-                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <line x1="20" y1="50" x2="125" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <text x="20" y="60" font-size="8" fill="#78716C">Jan</text>
-                        <text x="125" y="60" font-size="8" fill="#78716C" text-anchor="end">Dec</text>
-                        <path d="M20,48 C40,44 60,36 80,26 C95,16 105,10 115,8" fill="none" stroke="#A8A29E" stroke-width="2.5"/>
-                        <text x="98" y="5" font-size="9" fill="#A8A29E" font-weight="600">2,071</text>
-                        <path d="M20,48 C40,46 60,40 80,32 C95,24 105,20 115,16" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
-                        <text x="98" y="14" font-size="9" fill="#3B82F6" font-weight="600">1,036</text>
-                        <path d="M20,48 C40,47 60,44 80,38 C95,34 105,32 115,28" fill="none" stroke="#7C3AED" stroke-width="3"/>
-                        <text x="98" y="33" font-size="9" fill="#7C3AED" font-weight="700">592</text>
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Rural Civic NC <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.85rem;">(3,699)</span></div>
+                    <svg viewBox="0 0 150 55" style="width: 100%; height: 85px;">
+                        <line x1="15" y1="8" x2="15" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <line x1="15" y1="42" x2="100" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="15" y="50" font-size="7" fill="#78716C">Jan</text>
+                        <text x="100" y="50" font-size="7" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M15,40 C35,36 55,28 75,18 C85,11 92,8 97,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <text x="105" y="10" font-size="8" fill="#A8A29E" font-weight="600">2,071</text>
+                        <path d="M15,40 C35,37 55,31 75,23 C85,17 92,14 97,13" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="105" y="15" font-size="8" fill="#3B82F6" font-weight="600">1,036</text>
+                        <path d="M15,40 C35,38 55,35 75,29 C85,25 92,23 97,22" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <text x="105" y="25" font-size="8" fill="#7C3AED" font-weight="700">592</text>
                     </svg>
                 </div>
                 <!-- FaithWI -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
-                    <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">FaithWI <span style="color: var(--text-secondary); font-weight: 400;">(n=1,853)</span></div>
-                    <svg viewBox="0 0 130 65" style="width: 100%; height: 100px;">
-                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <line x1="20" y1="50" x2="125" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <text x="20" y="60" font-size="8" fill="#78716C">Jan</text>
-                        <text x="125" y="60" font-size="8" fill="#78716C" text-anchor="end">Dec</text>
-                        <path d="M20,48 C40,44 60,36 80,26 C95,18 105,12 115,10" fill="none" stroke="#A8A29E" stroke-width="2.5"/>
-                        <text x="98" y="7" font-size="9" fill="#A8A29E" font-weight="600">1,158</text>
-                        <path d="M20,48 C40,46 60,42 80,36 C95,30 105,26 115,24" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
-                        <text x="98" y="21" font-size="9" fill="#3B82F6" font-weight="600">422</text>
-                        <path d="M20,48 C40,47 60,45 80,42 C95,38 105,36 115,34" fill="none" stroke="#7C3AED" stroke-width="3"/>
-                        <text x="98" y="39" font-size="9" fill="#7C3AED" font-weight="700">271</text>
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">FaithWI <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.85rem;">(1,853)</span></div>
+                    <svg viewBox="0 0 150 55" style="width: 100%; height: 85px;">
+                        <line x1="15" y1="8" x2="15" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <line x1="15" y1="42" x2="100" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="15" y="50" font-size="7" fill="#78716C">Jan</text>
+                        <text x="100" y="50" font-size="7" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M15,40 C35,36 55,28 75,18 C85,12 92,9 97,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <text x="105" y="10" font-size="8" fill="#A8A29E" font-weight="600">1,158</text>
+                        <path d="M15,40 C35,37 55,32 75,25 C85,20 92,17 97,16" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="105" y="18" font-size="8" fill="#3B82F6" font-weight="600">422</text>
+                        <path d="M15,40 C35,38 55,36 75,31 C85,28 92,26 97,25" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <text x="105" y="28" font-size="8" fill="#7C3AED" font-weight="700">271</text>
                     </svg>
                 </div>
                 <!-- People Power MI -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
-                    <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">People Power MI <span style="color: var(--text-secondary); font-weight: 400;">(n=1,593)</span></div>
-                    <svg viewBox="0 0 130 65" style="width: 100%; height: 100px;">
-                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <line x1="20" y1="50" x2="125" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <text x="20" y="60" font-size="8" fill="#78716C">Jan</text>
-                        <text x="125" y="60" font-size="8" fill="#78716C" text-anchor="end">Dec</text>
-                        <path d="M20,48 C40,44 60,36 80,26 C95,16 105,10 115,8" fill="none" stroke="#A8A29E" stroke-width="2.5"/>
-                        <text x="98" y="5" font-size="9" fill="#A8A29E" font-weight="600">1,114</text>
-                        <path d="M20,48 C40,47 60,44 80,40 C95,36 105,34 115,32" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
-                        <text x="98" y="29" font-size="9" fill="#3B82F6" font-weight="600">269</text>
-                        <path d="M20,48 C40,47 60,46 80,43 C95,40 105,38 115,36" fill="none" stroke="#7C3AED" stroke-width="3"/>
-                        <text x="98" y="41" font-size="9" fill="#7C3AED" font-weight="700">209</text>
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">People Power MI <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.85rem;">(1,593)</span></div>
+                    <svg viewBox="0 0 150 55" style="width: 100%; height: 85px;">
+                        <line x1="15" y1="8" x2="15" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <line x1="15" y1="42" x2="100" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="15" y="50" font-size="7" fill="#78716C">Jan</text>
+                        <text x="100" y="50" font-size="7" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M15,40 C35,36 55,28 75,18 C85,11 92,8 97,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <text x="105" y="10" font-size="8" fill="#A8A29E" font-weight="600">1,114</text>
+                        <path d="M15,40 C35,38 55,35 75,29 C85,25 92,23 97,22" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="105" y="25" font-size="8" fill="#3B82F6" font-weight="600">269</text>
+                        <path d="M15,40 C35,39 55,37 75,33 C85,30 92,28 97,27" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <text x="105" y="30" font-size="8" fill="#7C3AED" font-weight="700">209</text>
                     </svg>
                 </div>
                 <!-- Immigrant Rights WI -->
-                <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem;">
-                    <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem;">Immigrant Rights WI <span style="color: var(--text-secondary); font-weight: 400;">(n=585)</span></div>
-                    <svg viewBox="0 0 130 65" style="width: 100%; height: 100px;">
-                        <line x1="20" y1="5" x2="20" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <line x1="20" y1="50" x2="125" y2="50" stroke="#E7E5E4" stroke-width="1"/>
-                        <text x="20" y="60" font-size="8" fill="#78716C">Jan</text>
-                        <text x="125" y="60" font-size="8" fill="#78716C" text-anchor="end">Dec</text>
-                        <path d="M20,48 C40,42 60,32 80,22 C95,14 105,10 115,8" fill="none" stroke="#A8A29E" stroke-width="2.5"/>
-                        <text x="98" y="5" font-size="9" fill="#A8A29E" font-weight="600">409</text>
-                        <path d="M20,48 C40,47 60,44 80,40 C95,36 105,34 115,32" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
-                        <text x="98" y="29" font-size="9" fill="#3B82F6" font-weight="600">90</text>
-                        <path d="M20,48 C40,47 60,46 80,44 C95,42 105,40 115,38" fill="none" stroke="#7C3AED" stroke-width="3"/>
-                        <text x="98" y="43" font-size="9" fill="#7C3AED" font-weight="700">86</text>
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">Immigrant Rights WI <span style="color: var(--text-secondary); font-weight: 400; font-size: 0.85rem;">(585)</span></div>
+                    <svg viewBox="0 0 150 55" style="width: 100%; height: 85px;">
+                        <line x1="15" y1="8" x2="15" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <line x1="15" y1="42" x2="100" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+                        <text x="15" y="50" font-size="7" fill="#78716C">Jan</text>
+                        <text x="100" y="50" font-size="7" fill="#78716C" text-anchor="end">Dec</text>
+                        <path d="M15,40 C35,34 55,24 75,14 C85,10 92,8 97,8" fill="none" stroke="#A8A29E" stroke-width="2"/>
+                        <text x="105" y="10" font-size="8" fill="#A8A29E" font-weight="600">409</text>
+                        <path d="M15,40 C35,38 55,35 75,29 C85,25 92,23 97,22" fill="none" stroke="#3B82F6" stroke-width="2"/>
+                        <text x="105" y="25" font-size="8" fill="#3B82F6" font-weight="600">90</text>
+                        <path d="M15,40 C35,39 55,37 75,34 C85,31 92,29 97,28" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
+                        <text x="105" y="31" font-size="8" fill="#7C3AED" font-weight="700">86</text>
                     </svg>
                 </div>
             </div>
-
-            <p class="small-text" style="margin-top: 0.75rem; text-align: center;">Cumulative participant counts by engagement level (2024 cycle)</p>
         </div>
         <span class="slide-number">14</span>
     </section>
@@ -1192,39 +1187,39 @@
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-        <div class="content">
+        <div class="content wide">
             <div class="statement-box">
                 <p>Leadership density is associated with policy influence, not mobilization volume.</p>
             </div>
 
-            <table class="threshold-table fragment">
+            <table class="threshold-table fragment" style="margin-top: 2rem;">
                 <thead>
                     <tr>
-                        <th>Purple Line Leaders</th>
-                        <th>Base Multiplier</th>
-                        <th>2024-25 Outcomes</th>
+                        <th style="font-size: 1rem; padding: 1.25rem;">Purple Line Leaders</th>
+                        <th style="font-size: 1rem; padding: 1.25rem;">Base Multiplier</th>
+                        <th style="font-size: 1rem; padding: 1.25rem;">2024-25 Outcomes</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="highlight">
-                        <td class="number">&gt;200</td>
-                        <td>3x or larger</td>
-                        <td style="font-size: 0.85rem;">Statewide/cross-local wins (MN 7/7 races by 14-192 votes; OH Emilia Sykes 51-49; NC broke GOP supermajority)</td>
+                        <td class="number" style="font-size: 1.75rem; padding: 1.25rem;">&gt;200</td>
+                        <td style="font-size: 1.2rem; padding: 1.25rem;">3x or larger</td>
+                        <td style="font-size: 1.1rem; padding: 1.25rem; line-height: 1.5;">Statewide/cross-local wins (MN 7/7 races by 14-192 votes; OH Emilia Sykes 51-49; NC broke GOP supermajority)</td>
                     </tr>
                     <tr>
-                        <td class="number">61-179</td>
-                        <td>2x or larger</td>
-                        <td style="font-size: 0.85rem;">Local campaign wins (AZ Prop 139 abortion win; WI referenda; MI judge races)</td>
+                        <td class="number" style="font-size: 1.75rem; padding: 1.25rem;">61-179</td>
+                        <td style="font-size: 1.2rem; padding: 1.25rem;">2x or larger</td>
+                        <td style="font-size: 1.1rem; padding: 1.25rem; line-height: 1.5;">Local campaign wins (AZ Prop 139 abortion win; WI referenda; MI judge races)</td>
                     </tr>
                     <tr>
-                        <td class="number">&lt;44</td>
-                        <td>Any size</td>
-                        <td style="font-size: 0.85rem;">No policy translation (participation without power)</td>
+                        <td class="number" style="font-size: 1.75rem; padding: 1.25rem;">&lt;44</td>
+                        <td style="font-size: 1.2rem; padding: 1.25rem;">Any size</td>
+                        <td style="font-size: 1.1rem; padding: 1.25rem; line-height: 1.5;">No policy translation (participation without power)</td>
                     </tr>
                 </tbody>
             </table>
 
-            <p class="table-note">* Pattern consistent across red, blue, and purple electoral contexts</p>
+            <p class="table-note" style="font-size: 1.1rem; margin-top: 1.5rem;">* Pattern consistent across red, blue, and purple electoral contexts</p>
         </div>
         <span class="slide-number">15</span>
     </section>
@@ -1269,21 +1264,24 @@
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-        <div class="content">
+        <div class="content wide">
             <div class="statement-box">
-                <p>Organizing leaders serve as hubs in networked structures of voluntary civic leadership.</p>
+                <p>Network analysis reveals which leaders are recruiting and developing others.</p>
             </div>
 
-            <p class="fragment lead-text">Network analysis reveals which leaders are recruiting and developing others—the organizational infrastructure that converts participation into power.</p>
-
-            <div class="fragment" style="text-align: center; margin: 1rem 0;">
-                <img src="assets/AAMO-recruitment-network.png" alt="AAMO Recruitment Network" style="max-width: 100%; max-height: 50vh; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-                <p class="small-text" style="margin-top: 0.5rem;">AAMO Missouri: 426 people, 413 recruitment relationships</p>
+            <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; align-items: center; margin-top: 1rem;">
+                <div class="fragment">
+                    <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem;">The organizational infrastructure that converts participation into power.</p>
+                    <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.5;">ReproJus (MO): 426 people, 413 recruitment relationships</p>
+                </div>
+                <div class="fragment">
+                    <img src="assets/AAMO-recruitment-network.png" alt="Recruitment Network" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+                </div>
             </div>
 
-            <blockquote class="fragment" style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(0.95rem, 1.4vw, 1.1rem); line-height: 1.5; color: var(--text-secondary); font-style: italic; margin: 1rem 0; padding-left: 1rem; border-left: 3px solid var(--accent-muted);">
+            <blockquote class="fragment" style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.5; color: var(--text-secondary); font-style: italic; margin-top: 1.5rem; padding-left: 1.25rem; border-left: 4px solid var(--accent-muted);">
                 "It is the <strong style="color: var(--accent);">depth and structure</strong> of organized bases that determine whether a scaled voter mobilization can be translated into long-term power."
-                <span style="display: block; font-style: normal; font-size: 0.85rem; margin-top: 0.5rem;">— Doran Schrantz</span>
+                <span style="display: block; font-style: normal; font-size: 1rem; margin-top: 0.5rem;">— Doran Schrantz</span>
             </blockquote>
         </div>
         <span class="slide-number">17</span>
@@ -1359,17 +1357,14 @@
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <p style="font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 1rem; text-align: center;">On Mechanism #1: Culture of Agency</p>
+            <p style="font-size: 1rem; color: var(--accent); font-weight: 500; margin-bottom: 1.25rem; text-align: center;">On Mechanism #1: Culture of Agency</p>
 
             <div class="fragment pull-quote">
-                "I made a choice with my team that we were going to believe in people a lot more and center actual normal people in our work and ask them to do hard things and not even hard things, just necessary things."
-            </div>
-            <div class="fragment pull-quote" style="margin-top: 0.5rem;">
-                "And since then, every single organizer has an organizing committee in specific districts that they're organizing. We're not just being a grab bag, seeing whoever comes toward us. We were like, no, we need to build power in this district."
-                <span class="attribution">— Rowan, ReproJus (Red State)</span>
+                "I made a choice with my team that we were going to believe in people a lot more and center actual normal people in our work and ask them to do hard things and not even hard things, just necessary things...<span class="fragment">And since then, every single organizer has an organizing committee in specific districts that they're organizing. We're not just being a grab bag, seeing whoever comes toward us. We were like, no, we need to build power in this district."</span>
+                <span class="attribution">— Rowan, ReproJus (MO)</span>
             </div>
 
-            <div class="fragment pull-quote">
+            <div class="fragment pull-quote" style="margin-top: 1rem;">
                 "You <em>know</em> when you are in a <em>sí se puede</em> group or a <em>no se puede</em> group."
                 <span class="attribution">— Joy Cushman</span>
             </div>
