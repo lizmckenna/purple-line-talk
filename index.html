@@ -86,26 +86,15 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Statement header style - key claim at top */
-        .statement {
-            font-family: 'Source Serif 4', Georgia, serif;
-            font-size: clamp(1.3rem, 2.5vw, 1.75rem);
-            font-weight: 600;
-            line-height: 1.35;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        /* Callout box for key statements */
-        .callout-box {
+        /* Statement header - purple background style */
+        .statement-box {
             background: var(--accent-light);
             border-left: 4px solid var(--accent);
             padding: 1.25rem 1.5rem;
             margin-bottom: 1.5rem;
             border-radius: 0 8px 8px 0;
         }
-        .callout-box p {
+        .statement-box p {
             font-family: 'Source Serif 4', Georgia, serif;
             font-size: clamp(1.2rem, 2vw, 1.5rem);
             font-weight: 600;
@@ -135,6 +124,7 @@
         .small-text {
             font-size: clamp(0.8rem, 1.2vw, 0.9rem);
             color: var(--text-secondary);
+            text-align: left;
         }
 
         .divider {
@@ -364,6 +354,37 @@
             font-weight: 600;
         }
 
+        /* Results sub-nav */
+        .results-subnav {
+            position: fixed;
+            top: 42px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(250, 250, 248, 0.9);
+            border-bottom: 1px solid var(--border);
+            display: none;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0.4rem 1rem;
+        }
+        .results-subnav.visible {
+            display: flex;
+        }
+        .results-subnav a {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+        .results-subnav a:hover, .results-subnav a.active {
+            color: var(--accent);
+            background: var(--accent-light);
+        }
+
         .slide {
             padding-top: clamp(3.5rem, 8vw, 5rem);
         }
@@ -398,17 +419,31 @@
             border-bottom: 2px solid var(--accent-light);
         }
         .theory-col p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             line-height: 1.5;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
         .theory-col .label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-secondary);
-            margin-top: 0.75rem;
+            margin-top: 0.6rem;
+        }
+        .theory-col .extension {
+            background: var(--accent-light);
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 0.75rem;
+            margin-top: 0.5rem;
+            border-radius: 0 4px 4px 0;
+        }
+        .theory-col .extension .label {
+            color: var(--accent);
+        }
+        .theory-col .extension p {
+            color: var(--accent);
+            font-weight: 500;
         }
 
         /* Progressive reveal */
@@ -423,6 +458,52 @@
             visibility: visible;
             transform: translateY(0);
             transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s 0s;
+        }
+
+        /* State cards with images */
+        .state-card-img {
+            background: white;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            padding: 0.6rem 0.8rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .state-card-img img {
+            width: 50px;
+            height: 35px;
+            object-fit: cover;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .state-card-img .text {
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+        .state-card-img strong {
+            color: var(--accent);
+        }
+
+        /* Blockquote styling */
+        .pull-quote {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: clamp(1rem, 1.6vw, 1.2rem);
+            line-height: 1.5;
+            color: var(--text);
+            font-style: italic;
+            padding: 1rem 1.25rem;
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+        .pull-quote .attribution {
+            font-style: normal;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            display: block;
         }
 
         @media (max-width: 768px) {
@@ -447,11 +528,18 @@
     <!-- Section Navigation Bar -->
     <nav class="section-nav" id="sectionNav">
         <a href="#slide-2" data-section="puzzle">Puzzle</a>
-        <a href="#slide-6" data-section="theory">Theory/Lit</a>
+        <a href="#slide-5" data-section="theory">Theory/Lit</a>
         <a href="#slide-7" data-section="methods">Methods</a>
         <a href="#slide-11" data-section="results">Results</a>
-        <a href="#slide-17" data-section="discussion">Discussion</a>
-        <a href="#slide-23" data-section="appendix">Appendix</a>
+        <a href="#slide-18" data-section="discussion">Discussion</a>
+        <a href="#slide-25" data-section="appendix">Appendix</a>
+    </nav>
+
+    <!-- Results sub-navigation -->
+    <nav class="results-subnav" id="resultsSubnav">
+        <a href="#slide-12" data-result="attrition">Attrition</a>
+        <a href="#slide-13" data-result="purple">Purple Line</a>
+        <a href="#slide-16" data-result="networks">Networks</a>
     </nav>
 
     <nav class="nav-dots" id="navDots"></nav>
@@ -486,11 +574,10 @@
         <div class="corner corner-br"></div>
 
         <div class="content wide">
-            <div class="callout-box">
+            <div class="statement-box">
                 <p>We live in an age of mass protest and mass political participation.</p>
             </div>
 
-            <!-- Protest Photos Grid - all visible -->
             <div id="protestGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;">
                 <div style="position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: 3px;">
                     <img src="assets/iraq.webp" alt="Iraq War protests 2003" style="width: 100%; height: 100%; object-fit: cover;">
@@ -555,21 +642,21 @@
         <div class="corner corner-br"></div>
 
         <div class="content wide">
-            <div class="callout-box">
-                <p>At the same time, democracy is eroding globally.</p>
+            <div class="statement-box">
+                <p>At the same time, democracy is eroding.</p>
             </div>
 
             <div style="text-align: center; margin: 1rem 0;">
                 <img src="assets/vdem_autocratization.png" alt="V-Dem Autocratization Chart" style="max-width: 100%; max-height: 60vh; border-radius: 4px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
             </div>
 
-            <p class="small-text" style="text-align: center;">Source: Varieties of Democracy (V-Dem) Dataset v15. Coppedge, Michael, et al. (2024). <a href="https://v-dem.net/" style="color: var(--accent);">[Link]</a></p>
+            <p class="small-text">Source: Varieties of Democracy (V-Dem) Dataset v15. Coppedge et al. (2024). <a href="https://v-dem.net/" style="color: var(--accent);">[Link]</a></p>
         </div>
         <span class="slide-number">3</span>
     </section>
 
     <!-- ============================================
-         SLIDE 4: BEVINS - GLOBAL PHENOMENON
+         SLIDE 4: THE QUESTION
          ============================================ -->
     <section class="slide" id="slide-4" data-slide="4" data-section="puzzle">
         <div class="corner corner-tl"></div>
@@ -577,39 +664,35 @@
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-        <div class="content wide">
-            <div class="callout-box">
-                <p>This pattern—<span class="purple-text">high participation, low civic power</span>—is a global phenomenon.</p>
-            </div>
-
-            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Success rate of 10 key mass protests (2010-2020)</p>
-
-            <div style="text-align: center;">
-                <img src="assets/bevins.png" alt="If We Burn by Vincent Bevins" style="max-height: 55vh; border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
-            </div>
-
-            <p class="small-text" style="margin-top: 1rem;">Source: Bevins, V. (2023). <em>If We Burn: The Mass Protest Decade and the Missing Revolution</em>. PublicAffairs. <a href="https://vincentbevins.com/book2/" style="color: var(--accent);">[Link]</a></p>
+        <div class="content centered">
+            <p style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1.4rem, 2.8vw, 2rem); font-weight: 600; color: var(--accent); line-height: 1.4;">Why, under the same conditions of democratic stress, do some organizations convert participation into influence while others don't?</p>
         </div>
         <span class="slide-number">4</span>
     </section>
 
     <!-- ============================================
-         SLIDE 5: THE QUESTION
+         SLIDE 5: THEORY/LIT - THE GAP
          ============================================ -->
-    <section class="slide" id="slide-5" data-slide="5" data-section="puzzle">
+    <section class="slide" id="slide-5" data-slide="5" data-section="theory">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-        <div class="content centered">
-            <p style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; color: var(--accent); line-height: 1.4;">What organizational conditions convert civic participation into political power?</p>
+        <div class="content">
+            <h2>The Participation-Power Gap: What We Don't Know</h2>
+
+            <ul class="bullet-list" style="font-size: clamp(0.9rem, 1.4vw, 1.05rem);">
+                <li class="fragment"><strong>Contentious politics tradition</strong> (<a href="https://global.oup.com/academic/product/contentious-politics-9780190255053?cc=us&lang=en&" style="color: var(--accent);">Tarrow & Tilly</a>; <a href="https://collectiveaction.stanford.edu/" style="color: var(--accent);">DOCA</a>): relies on protest event counts; lacks a view into internal organizational structure</li>
+                <li class="fragment"><strong>Civic engagement tradition</strong> (<a href="https://press.princeton.edu/books/hardcover/9780691180557/unequal-and-unrepresented" style="color: var(--accent);">Verba, Schlozman, Brady</a>): individual surveys; how respondents are relationally connected, longitudinal participation, and internal org structure unobserved</li>
+                <li class="fragment">An understanding of the <strong>transmission mechanism</strong> between inputs (participation) and outputs (influence) remains underexplored</li>
+            </ul>
         </div>
         <span class="slide-number">5</span>
     </section>
 
     <!-- ============================================
-         SLIDE 6: THEORY/LIT - THE GAP
+         SLIDE 6: EXISTING DATASETS
          ============================================ -->
     <section class="slide" id="slide-6" data-slide="6" data-section="theory">
         <div class="corner corner-tl"></div>
@@ -618,14 +701,15 @@
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <p class="statement">The Participation-Power Gap: What We Don't Know</p>
+            <div class="statement-box">
+                <p>Existing datasets make it difficult to observe what distinguishes organizations with similar mobilization profiles but divergent political outcomes.</p>
+            </div>
 
-            <ul class="bullet-list" style="font-size: clamp(0.9rem, 1.4vw, 1.05rem);">
-                <li class="fragment"><strong>Contentious politics tradition</strong> (<a href="https://global.oup.com/academic/product/contentious-politics-9780190255053?cc=us&lang=en&" style="color: var(--accent);">Tarrow & Tilly</a>; <a href="https://collectiveaction.stanford.edu/" style="color: var(--accent);">Dynamics of Collective Action</a>): relies on protest event counts, misses internal organizational structure</li>
-                <li class="fragment"><strong>Civic engagement tradition</strong> (<a href="https://press.princeton.edu/books/hardcover/9780691180557/unequal-and-unrepresented" style="color: var(--accent);">Verba, Schlozman, Brady</a>): individual surveys, aggregates in ways that obscure relational architecture</li>
-                <li class="fragment">Both traditions were designed to answer different questions; an understanding of the <strong>transmission mechanism</strong> between inputs (participation) and outputs (influence) remains underexplored</li>
-                <li class="fragment">Existing datasets make it difficult to observe what distinguishes organizations with similar mobilization profiles but divergent political outcomes</li>
-            </ul>
+            <div class="fragment" style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-top: 1.5rem;">
+                <h3 style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.1rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem;">Introducing POLIS</h3>
+                <p style="font-size: 1rem; line-height: 1.6;"><strong>Participation, Organizing, and Local Influence Study</strong></p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">Tracks the organizational infrastructure between civic participation and political power</p>
+            </div>
         </div>
         <span class="slide-number">6</span>
     </section>
@@ -640,28 +724,28 @@
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <p class="statement">The POLIS (Participation, Organizing, and Local Influence Study) database tracks the organizational infrastructure between civic participation and political power.</p>
-
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">[PLACEHOLDER: Link to Harvard Dataverse DOI]</p>
+            <div class="statement-box">
+                <p>POLIS tracks the organizational infrastructure between civic participation and political power.</p>
+            </div>
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; font-size: clamp(0.85rem, 1.2vw, 0.95rem);">
-                <div>
+                <div class="fragment">
                     <p style="font-weight: 600; color: var(--accent); margin-bottom: 0.5rem;">What POLIS makes visible:</p>
                     <ul class="bullet-list" style="font-size: 0.9rem;">
-                        <li>Who participates in SMOs and civic associations and how their engagement deepens or atrophies over time</li>
-                        <li>How organizations are structured internally: leadership density, relational architecture, recruitment networks</li>
+                        <li>Who participates and how engagement deepens or atrophies over time</li>
+                        <li>Internal structure: leadership density, relational architecture, recruitment networks</li>
                     </ul>
                 </div>
-                <div>
+                <div class="fragment">
                     <p style="font-weight: 600; color: var(--accent); margin-bottom: 0.5rem;">Outcomes (traced through multiple methods):</p>
                     <ul class="bullet-list" style="font-size: 0.9rem;">
-                        <li>Policy wins and electoral influence, assessed through prospective case studies, interview data, newspaper reporting, and organizational records</li>
-                        <li>Relationships with elected officials, documented through interviews with organizational leaders, volunteers, legislative staff, and policymakers</li>
+                        <li>Policy wins and electoral influence via prospective case studies, interviews, organizational records</li>
+                        <li>Relationships with officials via interviews with leaders, volunteers, staff, policymakers</li>
                     </ul>
                 </div>
             </div>
 
-            <div style="display: flex; justify-content: space-between; margin-top: 1.5rem; padding: 1rem; background: var(--accent-light); border-radius: 8px;">
+            <div class="fragment" style="display: flex; justify-content: space-between; margin-top: 1.5rem; padding: 1rem; background: var(--accent-light); border-radius: 8px;">
                 <div style="text-align: center;">
                     <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.5rem; font-weight: 600; color: var(--accent);">38</div>
                     <div style="font-size: 0.75rem; color: var(--text-secondary);">organizations</div>
@@ -680,13 +764,13 @@
                 </div>
             </div>
 
-            <p class="small-text" style="margin-top: 1rem; text-align: center;">Red, blue, and purple electoral contexts · Data use agreements with each organization · Quantitative microdata linked to qualitative case documentation</p>
+            <p class="small-text" style="margin-top: 1rem;">Red, blue, and purple electoral contexts · Data use agreements with each organization · Quantitative microdata linked to qualitative case documentation</p>
         </div>
         <span class="slide-number">7</span>
     </section>
 
     <!-- ============================================
-         SLIDE 8: IPO DEFINITION + DDX COMPARISON
+         SLIDE 8: IPO DEFINITION + DDX
          ============================================ -->
     <section class="slide" id="slide-8" data-slide="8" data-section="methods">
         <div class="corner corner-tl"></div>
@@ -695,12 +779,13 @@
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <p class="statement">POLIS draws on data from 38 independent power-building organizations (IPOs): multiracial, working-class, year-round civic associations operating at state and local levels.</p>
+            <div class="statement-box">
+                <p>POLIS draws on data from 38 independent power-building organizations (IPOs): multiracial, working-class, year-round civic associations at state and local levels.</p>
+            </div>
 
-            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 1rem 0;">DDx voter contact comparison (2024 General Election):</p>
+            <p class="fragment" style="font-size: 0.9rem; color: var(--text-secondary); margin: 1rem 0;">DDx voter contact comparison (2024 General Election):</p>
 
-            <!-- DDx Targeting Chart -->
-            <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem;">
+            <div class="fragment" style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem;">
                 <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 0.75rem; font-size: 0.8rem;">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                         <div style="width: 14px; height: 14px; background: linear-gradient(90deg, var(--accent), var(--accent-muted)); border-radius: 2px;"></div>
@@ -711,32 +796,26 @@
                         <span>Other DDx Programs</span>
                     </div>
                 </div>
-
-                <div style="display: grid; gap: 0.5rem;">
+                <div style="display: grid; gap: 0.4rem;">
                     <div style="display: grid; grid-template-columns: 100px 1fr 1fr; gap: 0.5rem; align-items: center;">
-                        <div style="font-size: 0.8rem; font-weight: 500; text-align: right;">Voters of Color</div>
-                        <div style="display: flex; justify-content: flex-end;"><div style="width: 78%; height: 24px; background: linear-gradient(90deg, var(--accent), var(--accent-muted)); border-radius: 3px 0 0 3px; display: flex; align-items: center; padding-left: 6px;"><span style="color: white; font-size: 0.75rem; font-weight: 600;">78%</span></div></div>
-                        <div style="display: flex;"><div style="width: 45%; height: 24px; background: #D6D3D1; border-radius: 0 3px 3px 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px;"><span style="color: var(--text-secondary); font-size: 0.75rem; font-weight: 600;">45%</span></div></div>
+                        <div style="font-size: 0.75rem; font-weight: 500; text-align: right;">Voters of Color</div>
+                        <div style="display: flex; justify-content: flex-end;"><div style="width: 78%; height: 20px; background: linear-gradient(90deg, var(--accent), var(--accent-muted)); border-radius: 3px 0 0 3px; display: flex; align-items: center; padding-left: 6px;"><span style="color: white; font-size: 0.7rem; font-weight: 600;">78%</span></div></div>
+                        <div style="display: flex;"><div style="width: 45%; height: 20px; background: #D6D3D1; border-radius: 0 3px 3px 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px;"><span style="color: var(--text-secondary); font-size: 0.7rem; font-weight: 600;">45%</span></div></div>
                     </div>
                     <div style="display: grid; grid-template-columns: 100px 1fr 1fr; gap: 0.5rem; align-items: center;">
-                        <div style="font-size: 0.8rem; font-weight: 500; text-align: right;">Under Age 44</div>
-                        <div style="display: flex; justify-content: flex-end;"><div style="width: 52%; height: 24px; background: linear-gradient(90deg, var(--accent), var(--accent-muted)); border-radius: 3px 0 0 3px; display: flex; align-items: center; padding-left: 6px;"><span style="color: white; font-size: 0.75rem; font-weight: 600;">52%</span></div></div>
-                        <div style="display: flex;"><div style="width: 38%; height: 24px; background: #D6D3D1; border-radius: 0 3px 3px 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px;"><span style="color: var(--text-secondary); font-size: 0.75rem; font-weight: 600;">38%</span></div></div>
+                        <div style="font-size: 0.75rem; font-weight: 500; text-align: right;">Under Age 44</div>
+                        <div style="display: flex; justify-content: flex-end;"><div style="width: 52%; height: 20px; background: linear-gradient(90deg, var(--accent), var(--accent-muted)); border-radius: 3px 0 0 3px; display: flex; align-items: center; padding-left: 6px;"><span style="color: white; font-size: 0.7rem; font-weight: 600;">52%</span></div></div>
+                        <div style="display: flex;"><div style="width: 38%; height: 20px; background: #D6D3D1; border-radius: 0 3px 3px 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px;"><span style="color: var(--text-secondary); font-size: 0.7rem; font-weight: 600;">38%</span></div></div>
                     </div>
                     <div style="display: grid; grid-template-columns: 100px 1fr 1fr; gap: 0.5rem; align-items: center;">
-                        <div style="font-size: 0.8rem; font-weight: 500; text-align: right;">Low Propensity</div>
-                        <div style="display: flex; justify-content: flex-end;"><div style="width: 61%; height: 24px; background: linear-gradient(90deg, var(--accent), var(--accent-muted)); border-radius: 3px 0 0 3px; display: flex; align-items: center; padding-left: 6px;"><span style="color: white; font-size: 0.75rem; font-weight: 600;">61%</span></div></div>
-                        <div style="display: flex;"><div style="width: 50%; height: 24px; background: #D6D3D1; border-radius: 0 3px 3px 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px;"><span style="color: var(--text-secondary); font-size: 0.75rem; font-weight: 600;">50%</span></div></div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 100px 1fr 1fr; gap: 0.5rem; align-items: center;">
-                        <div style="font-size: 0.8rem; font-weight: 500; text-align: right;">New/Infrequent</div>
-                        <div style="display: flex; justify-content: flex-end;"><div style="width: 58%; height: 24px; background: linear-gradient(90deg, var(--accent), var(--accent-muted)); border-radius: 3px 0 0 3px; display: flex; align-items: center; padding-left: 6px;"><span style="color: white; font-size: 0.75rem; font-weight: 600;">58%</span></div></div>
-                        <div style="display: flex;"><div style="width: 43%; height: 24px; background: #D6D3D1; border-radius: 0 3px 3px 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px;"><span style="color: var(--text-secondary); font-size: 0.75rem; font-weight: 600;">43%</span></div></div>
+                        <div style="font-size: 0.75rem; font-weight: 500; text-align: right;">Low Propensity</div>
+                        <div style="display: flex; justify-content: flex-end;"><div style="width: 61%; height: 20px; background: linear-gradient(90deg, var(--accent), var(--accent-muted)); border-radius: 3px 0 0 3px; display: flex; align-items: center; padding-left: 6px;"><span style="color: white; font-size: 0.7rem; font-weight: 600;">61%</span></div></div>
+                        <div style="display: flex;"><div style="width: 50%; height: 20px; background: #D6D3D1; border-radius: 0 3px 3px 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px;"><span style="color: var(--text-secondary); font-size: 0.7rem; font-weight: 600;">50%</span></div></div>
                     </div>
                 </div>
             </div>
 
-            <div class="evidence-grid" style="margin-top: 1rem;">
+            <div class="fragment evidence-grid" style="margin-top: 1rem;">
                 <div class="evidence-card">
                     <div class="evidence-stat">1 in 8</div>
                     <div class="evidence-label">Democratic voter contacts came from IPOs</div>
@@ -781,20 +860,26 @@
         <div class="corner corner-br"></div>
 
         <div class="content wide">
-            <p class="statement">Last month alone (Feb. 2026), these same organizations are focused on hyperlocal fights to defend communities against federal overreach.</p>
+            <div class="statement-box">
+                <p>Last month (Feb. 2026), the organizations in the study led hyperlocal efforts to defend communities against federal overreach.</p>
+            </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: clamp(0.8rem, 1.2vw, 0.9rem);">
-                <div style="background: white; border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 0.75rem 1rem;">
-                    <strong style="color: var(--accent);">Minnesota</strong> — Faith-based coalitions mobilized rapid response to ICE enforcement, including a 2,000-person rally at the state Capitol and coordinated pressure that preceded a reduction in militarized operations.
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; font-size: clamp(0.75rem, 1.1vw, 0.85rem);">
+                <div class="fragment state-card-img">
+                    <img src="assets/mn-flag.png" alt="Minnesota">
+                    <div class="text"><strong>Minnesota</strong> — Faith-based coalitions mobilized rapid response to ICE enforcement, including a 2,000-person rally at the state Capitol.</div>
                 </div>
-                <div style="background: white; border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 0.75rem 1rem;">
-                    <strong style="color: var(--accent);">Ohio</strong> — In Springfield, a church event drew over 1,000 attendees to organize support for Haitian community members; local organizations led Know Your Rights trainings and successfully passed a City Commission resolution on ICE cooperation.
+                <div class="fragment state-card-img">
+                    <img src="assets/oh-flag.png" alt="Ohio">
+                    <div class="text"><strong>Ohio</strong> — In Springfield, a church event drew 1,000+ attendees; local organizations passed a City Commission resolution on ICE cooperation.</div>
                 </div>
-                <div style="background: white; border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 0.75rem 1rem;">
-                    <strong style="color: var(--accent);">Maine</strong> — Coordinated advocacy from immigrant rights organizations contributed to the end of enhanced federal enforcement operations in the state.
+                <div class="fragment state-card-img">
+                    <img src="assets/me-flag.png" alt="Maine">
+                    <div class="text"><strong>Maine</strong> — Coordinated advocacy contributed to the end of enhanced federal enforcement operations.</div>
                 </div>
-                <div style="background: white; border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 0.75rem 1rem;">
-                    <strong style="color: var(--accent);">Missouri</strong> — Organizations collected three times the required signatures to place an anti-gerrymandering measure on the ballot, despite organized opposition at polling locations.
+                <div class="fragment state-card-img">
+                    <img src="assets/mo-flag.png" alt="Missouri">
+                    <div class="text"><strong>Missouri</strong> — Organizations collected 3x the required signatures to place an anti-gerrymandering measure on the ballot.</div>
                 </div>
             </div>
         </div>
@@ -818,14 +903,14 @@
                     <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 2rem; font-weight: 600; color: var(--accent); margin-right: 1rem; line-height: 1;">1</span>
                     <div>
                         <p style="font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 600; margin-bottom: 0.25rem;">Attrition (exit)</p>
-                        <p class="small-text">70% of participants exit after a single engagement</p>
+                        <p class="small-text">Most participants exit after a single engagement</p>
                     </div>
                 </li>
                 <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 1.5rem;">
                     <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 2rem; font-weight: 600; color: var(--accent); margin-right: 1rem; line-height: 1;">2</span>
                     <div>
                         <p style="font-size: clamp(1rem, 1.5vw, 1.15rem); font-weight: 600; margin-bottom: 0.25rem;">Leadership density & policy influence (voice)</p>
-                        <p class="small-text">Thresholds predict translation of mobilization into power</p>
+                        <p class="small-text">Thresholds associated with translation of mobilization into power</p>
                     </div>
                 </li>
                 <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 1.5rem;">
@@ -843,68 +928,73 @@
     <!-- ============================================
          SLIDE 12: RESULT 1 - ATTRITION
          ============================================ -->
-    <section class="slide" id="slide-12" data-slide="12" data-section="results">
+    <section class="slide" id="slide-12" data-slide="12" data-section="results" data-result="attrition">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
-        <div class="content">
-            <p class="statement">Most participants <em>exit</em> after a single engagement—but organizations can stem attrition through structure.</p>
-
-            <div style="display: grid; grid-template-columns: 180px 1fr; gap: 2rem; align-items: center; background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1rem 0;">
-                <div style="position: relative; width: 160px; height: 160px;">
-                    <svg viewBox="0 0 100 100" style="transform: rotate(-90deg);">
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="#A8A29E" stroke-width="16" stroke-dasharray="167 251.3" stroke-dashoffset="0"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="#3B82F6" stroke-width="16" stroke-dasharray="50.6 251.3" stroke-dashoffset="-167"/>
-                        <circle cx="50" cy="50" r="38" fill="none" stroke="var(--accent)" stroke-width="16" stroke-dasharray="21 251.3" stroke-dashoffset="-217.6"/>
-                    </svg>
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                        <div style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.75rem; font-weight: 700; color: #A8A29E; line-height: 1;">70%</div>
-                        <div style="font-size: 0.65rem; color: var(--text-secondary);">exit</div>
-                    </div>
-                </div>
-                <div>
-                    <div style="display: flex; gap: 1.5rem; margin-bottom: 0.75rem; font-size: 0.85rem;">
-                        <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 14px; height: 14px; background: #A8A29E; border-radius: 2px;"></div><span><strong>Grey</strong> 1 event (70%)</span></div>
-                        <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 14px; height: 14px; background: #3B82F6; border-radius: 2px;"></div><span><strong>Blue</strong> 2-4 (21%)</span></div>
-                        <div style="display: flex; align-items: center; gap: 0.4rem;"><div style="width: 14px; height: 14px; background: var(--accent); border-radius: 2px;"></div><span><strong>Purple</strong> 5+ (9%)</span></div>
-                    </div>
-                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Top retention organizations:</div>
-                    <div style="display: grid; grid-template-columns: 110px 1fr 35px; gap: 0.3rem; font-size: 0.75rem;">
-                        <div style="font-weight: 500;">Down Home NC</div>
-                        <div style="height: 16px; display: flex; border-radius: 2px; overflow: hidden;"><div style="width: 56%; background: #A8A29E;"></div><div style="width: 28%; background: #3B82F6;"></div><div style="width: 16%; background: var(--accent);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent); text-align: right;">16%</div>
-                        <div style="font-weight: 500;">ISAIAH (MN)</div>
-                        <div style="height: 16px; display: flex; border-radius: 2px; overflow: hidden;"><div style="width: 60%; background: #A8A29E;"></div><div style="width: 25%; background: #3B82F6;"></div><div style="width: 15%; background: var(--accent);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent); text-align: right;">15%</div>
-                        <div style="font-weight: 500;">Voces (WI)</div>
-                        <div style="height: 16px; display: flex; border-radius: 2px; overflow: hidden;"><div style="width: 70%; background: #A8A29E;"></div><div style="width: 15%; background: #3B82F6;"></div><div style="width: 15%; background: var(--accent);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent); text-align: right;">15%</div>
-                    </div>
-                </div>
+        <div class="content wide">
+            <div class="statement-box">
+                <p>Most participants <em>exit</em> after a single engagement.</p>
             </div>
 
-            <p class="small-text">N=41,625 participants across 19 IPOs. Organizations with balanced organizing/mobilizing activities showed higher retention.</p>
+            <div class="image-placeholder" style="padding: 1.5rem;">
+                <p class="label">[ALL ORGANIZATIONS ATTRITION CHART]</p>
+                <p class="instructions">Horizontal stacked bar for all 18 orgs (pseudonyms): Grey/Blue/Purple breakdown. Highlight top performers with animation.</p>
+                <p class="instructions" style="margin-top: 0.5rem;">Weighted average: 70% grey, 21% blue, 9% purple</p>
+            </div>
+
+            <p class="fragment small-text" style="background: var(--accent-light); padding: 0.75rem 1rem; border-radius: 4px; margin-top: 1rem;">
+                <strong style="color: var(--accent);">Orgs with balanced organizing/mobilizing activities stemmed attrition most.</strong>
+            </p>
+
+            <p class="small-text" style="margin-top: 1rem;">N=41,625 participants across 18 organizations</p>
         </div>
         <span class="slide-number">12</span>
     </section>
 
     <!-- ============================================
-         SLIDE 13: RESULT 2 - LEADERSHIP DENSITY
+         SLIDE 13: PURPLE LINE TRACKED
          ============================================ -->
-    <section class="slide" id="slide-13" data-slide="13" data-section="results">
+    <section class="slide" id="slide-13" data-slide="13" data-section="results" data-result="purple">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <p class="statement">Leadership density predicts policy influence, not mobilization volume.</p>
+            <div class="statement-box">
+                <p>Organizations tracked "purple line" leaders over time.</p>
+            </div>
 
             <p class="lead-text">"Purple line" leaders: volunteers who participated in <strong>5+ organizational activities per year</strong> and who themselves <strong>recruit and develop new leaders</strong>.</p>
 
-            <table class="threshold-table">
+            <div class="image-placeholder">
+                <p class="label">[FACET CHART: CUMULATIVE PURPLE LINE LEADERS BY ORG]</p>
+                <p class="instructions">Small multiples showing cumulative count of 5+ event participants over time for each organization</p>
+            </div>
+
+            <p class="small-text">Grey = one-time participants | Blue = 2-4 activities | Purple = 5+ activities (committed leaders)</p>
+        </div>
+        <span class="slide-number">13</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 14: LEADERSHIP DENSITY THRESHOLDS
+         ============================================ -->
+    <section class="slide" id="slide-14" data-slide="14" data-section="results" data-result="purple">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <div class="statement-box">
+                <p>Leadership density is associated with policy influence, not mobilization volume.</p>
+            </div>
+
+            <table class="threshold-table fragment">
                 <thead>
                     <tr>
                         <th>Purple Line Leaders</th>
@@ -931,87 +1021,92 @@
                 </tbody>
             </table>
 
-            <p class="table-note">* Consistent across red, blue, and purple states</p>
-        </div>
-        <span class="slide-number">13</span>
-    </section>
-
-    <!-- ============================================
-         SLIDE 14: RESULT 3 - NETWORKS
-         ============================================ -->
-    <section class="slide" id="slide-14" data-slide="14" data-section="results">
-        <div class="corner corner-tl"></div>
-        <div class="corner corner-tr"></div>
-        <div class="corner corner-bl"></div>
-        <div class="corner corner-br"></div>
-
-        <div class="content">
-            <p class="statement">Organizing leaders serve as hubs in networked structures of voluntary civic leadership.</p>
-
-            <p class="lead-text">Network analysis reveals which leaders are recruiting and developing others—the organizational infrastructure that converts participation into power.</p>
-
-            <div class="image-placeholder">
-                <p class="label">[NETWORK VISUALIZATION]</p>
-                <p class="instructions">Insert Figure 8 (Down Home NC network map) or similar showing hub-and-spoke organizing leader structures</p>
-            </div>
-
-            <blockquote style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(0.95rem, 1.4vw, 1.1rem); line-height: 1.5; color: var(--text-secondary); font-style: italic; margin: 1rem 0; padding-left: 1rem; border-left: 3px solid var(--accent-muted);">
-                "It is the <strong style="color: var(--accent);">depth and structure</strong> of organized bases that determine whether a scaled voter mobilization can be translated into long-term power."
-                <span style="display: block; font-style: normal; font-size: 0.85rem; margin-top: 0.5rem;">— Doran Schrantz</span>
-            </blockquote>
+            <p class="table-note fragment">* Consistent across red, blue, and purple states</p>
         </div>
         <span class="slide-number">14</span>
     </section>
 
     <!-- ============================================
-         SLIDE 15: PURPLE LINE CHART
+         SLIDE 15: JASON DUNKIN EXAMPLE
          ============================================ -->
-    <section class="slide" id="slide-15" data-slide="15" data-section="results">
+    <section class="slide" id="slide-15" data-slide="15" data-section="results" data-result="purple">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <p class="statement">Organizations tracked "purple line" leaders over time.</p>
-
-            <p class="lead-text">The name comes from the color first used in longitudinal visualizations of this metric.</p>
-
-            <div class="image-placeholder">
-                <p class="label">[PURPLE LINE CHART]</p>
-                <p class="instructions">Insert Figure 11 or similar showing purple line growth over time</p>
+            <div class="statement-box">
+                <p>Purple line leaders convert organizational capacity into electoral and policy outcomes.</p>
             </div>
 
-            <p class="small-text">Grey = one-time participants | Blue = 2-4 activities | Purple = 5+ activities (committed leaders)</p>
+            <div class="fragment" style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1rem 0;">
+                <p style="font-size: 0.95rem; line-height: 1.6;"><strong style="color: var(--accent);">Jason Dunkin (Rural Civic Alliance NC)</strong> organized residents to restore a local playground, helped elect the first Black Sheriff in his county, and contributed to flipping a state House seat by <strong>228 votes</strong>—breaking the GOP supermajority.</p>
+            </div>
+
+            <p class="small-text">Rural Civic Alliance NC: 592 purple line leaders | 16% retention rate (highest in sample)</p>
         </div>
         <span class="slide-number">15</span>
     </section>
 
     <!-- ============================================
-         SLIDE 16: JASON DUNKIN EXAMPLE
+         SLIDE 16: NETWORKS
          ============================================ -->
-    <section class="slide" id="slide-16" data-slide="16" data-section="results">
+    <section class="slide" id="slide-16" data-slide="16" data-section="results" data-result="networks">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <p class="statement">Purple line leaders convert organizational capacity into electoral and policy outcomes.</p>
-
-            <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin: 1rem 0;">
-                <p style="font-size: 0.9rem; line-height: 1.6;"><strong style="color: var(--accent);">Jason Dunkin (Down Home NC)</strong> organized residents to restore a local playground, helped elect the first Black Sheriff in Granville County, and contributed to flipping a NC House seat by <strong>228 votes</strong>—breaking the GOP supermajority.</p>
+            <div class="statement-box">
+                <p>Organizing leaders serve as hubs in networked structures of voluntary civic leadership.</p>
             </div>
 
-            <p class="small-text">Down Home NC: 592 purple line leaders | 16% retention rate (highest in sample)</p>
+            <p class="fragment lead-text">Network analysis reveals which leaders are recruiting and developing others—the organizational infrastructure that converts participation into power.</p>
+
+            <div class="fragment image-placeholder">
+                <p class="label">[NETWORK VISUALIZATION]</p>
+                <p class="instructions">Hub-and-spoke organizing leader structures from recruitment data (14+ orgs with recruit data)</p>
+            </div>
+
+            <blockquote class="fragment" style="font-family: 'Source Serif 4', Georgia, serif; font-size: clamp(0.95rem, 1.4vw, 1.1rem); line-height: 1.5; color: var(--text-secondary); font-style: italic; margin: 1rem 0; padding-left: 1rem; border-left: 3px solid var(--accent-muted);">
+                "It is the <strong style="color: var(--accent);">depth and structure</strong> of organized bases that determine whether a scaled voter mobilization can be translated into long-term power."
+                <span style="display: block; font-style: normal; font-size: 0.85rem; margin-top: 0.5rem;">— Doran Schrantz</span>
+            </blockquote>
         </div>
         <span class="slide-number">16</span>
     </section>
 
     <!-- ============================================
-         SLIDE 17: DISCUSSION - MECHANISMS 1-3
+         SLIDE 17: CULTURE OF AGENCY QUOTES
          ============================================ -->
-    <section class="slide" id="slide-17" data-slide="17" data-section="discussion">
+    <section class="slide" id="slide-17" data-slide="17" data-section="results" data-result="networks">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content">
+            <h2 style="color: var(--accent);">Culture of Agency</h2>
+
+            <div class="fragment pull-quote">
+                "I made a choice with my team that we were going to believe in people a lot more and center actual normal people in our work and ask them to do hard things and not even hard things, just necessary things. And since then, every single organizer has an organizing committee in specific districts that they're organizing. We're not just being a grab bag, seeing whoever comes toward us. We were like, no, we need to build power in this district."
+                <span class="attribution">— Rowan, ReproJus (Red State)</span>
+            </div>
+
+            <div class="fragment pull-quote">
+                "You <em>know</em> when you are in a <em>sí se puede</em> group or a <em>no se puede</em> group."
+                <span class="attribution">— Joy Cushman</span>
+            </div>
+        </div>
+        <span class="slide-number">17</span>
+    </section>
+
+    <!-- ============================================
+         SLIDE 18: MECHANISMS 1-3
+         ============================================ -->
+    <section class="slide" id="slide-18" data-slide="18" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1044,13 +1139,13 @@
                 </li>
             </ol>
         </div>
-        <span class="slide-number">17</span>
+        <span class="slide-number">18</span>
     </section>
 
     <!-- ============================================
-         SLIDE 18: DISCUSSION - MECHANISMS 4-6
+         SLIDE 19: MECHANISMS 4-6
          ============================================ -->
-    <section class="slide" id="slide-18" data-slide="18" data-section="discussion">
+    <section class="slide" id="slide-19" data-slide="19" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1074,22 +1169,22 @@
                         <p style="font-size: 0.9rem; color: var(--text-secondary);">Multiple leaders across issues and geographies create resilience when any one is targeted or exits</p>
                     </div>
                 </li>
-                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 1.25rem;">
+                <li class="fragment" style="display: flex; align-items: baseline; margin-bottom: 1.25rem; background: var(--accent-light); padding: 0.75rem 1rem; margin-left: -1rem; margin-right: -1rem; border-radius: 8px;">
                     <span style="font-family: 'Source Serif 4', Georgia, serif; font-size: 1.75rem; font-weight: 600; color: var(--accent); margin-right: 1rem; line-height: 1;">6</span>
                     <div>
-                        <p style="font-size: clamp(1.05rem, 1.6vw, 1.2rem); font-weight: 600; margin-bottom: 0.25rem;">Culture of agency</p>
+                        <p style="font-size: clamp(1.05rem, 1.6vw, 1.2rem); font-weight: 600; margin-bottom: 0.25rem; color: var(--accent);">Culture of agency ★</p>
                         <p style="font-size: 0.9rem; color: var(--text-secondary);">Sustained participation builds belief that collective action works—a self-reinforcing cycle</p>
                     </div>
                 </li>
             </ol>
         </div>
-        <span class="slide-number">18</span>
+        <span class="slide-number">19</span>
     </section>
 
     <!-- ============================================
-         SLIDE 19: THREE THEORETICAL CONVERSATIONS
+         SLIDE 20: THREE THEORETICAL CONVERSATIONS
          ============================================ -->
-    <section class="slide" id="slide-19" data-slide="19" data-section="discussion">
+    <section class="slide" id="slide-20" data-slide="20" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1104,37 +1199,43 @@
                     <p class="label">Core Insight</p>
                     <p>Participation scale associated with regime-level disruption (the 3.5% rule) (<a href="https://cup.columbia.edu/book/why-civil-resistance-works/9780231527484/" style="color: var(--accent);">Chenoweth & Stephan 2011</a>)</p>
                     <p class="label">Empirical Domain</p>
-                    <p>Maximalist campaigns, autocratic overthrow, territorial independence</p>
-                    <p class="label">Extension</p>
-                    <p>Incremental policy influence at state and local level</p>
+                    <p>Maximalist campaigns, autocratic overthrow</p>
+                    <div class="extension">
+                        <p class="label">Purple Line Extension</p>
+                        <p>Incremental policy influence at state and local level</p>
+                    </div>
                 </div>
                 <div class="theory-col" data-col="2">
                     <h3>Organizing vs. Mobilizing</h3>
                     <p class="label">Core Insight</p>
-                    <p>Depth of engagement matters more than breadth (<a href="https://www.amazon.com/How-Organizations-Develop-Activists-Associations/dp/0199336776" style="color: var(--accent);">Han</a>; <a href="https://janemcalevey.com/book/no-shortcuts-organizing-for-power-in-the-new-gilded-age/" style="color: var(--accent);">McAlevey</a>; <a href="https://global.oup.com/academic/product/people-power-change-9780197569009?cc=us&lang=en&" style="color: var(--accent);">Ganz 2025</a>)</p>
+                    <p>Depth matters more than breadth (<a href="https://www.amazon.com/How-Organizations-Develop-Activists-Associations/dp/0199336776" style="color: var(--accent);">Han</a>; <a href="https://janemcalevey.com/book/no-shortcuts-organizing-for-power-in-the-new-gilded-age/" style="color: var(--accent);">McAlevey</a>; <a href="https://global.oup.com/academic/product/people-power-change-9780197569009?cc=us&lang=en&" style="color: var(--accent);">Ganz 2025</a>)</p>
                     <p class="label">Empirical Domain</p>
                     <p>Logic and practice of civic depth</p>
-                    <p class="label">Extension</p>
-                    <p>Empirically validated thresholds grounded in longitudinal, individual-level relational data</p>
+                    <div class="extension">
+                        <p class="label">Purple Line Extension</p>
+                        <p>Validated thresholds from longitudinal relational data</p>
+                    </div>
                 </div>
                 <div class="theory-col" data-col="3">
                     <h3>Exit, Voice, and Loyalty</h3>
                     <p class="label">Core Insight</p>
-                    <p>When organizations fail people, exit is the default; voice requires active investment (Hirschman 1970)</p>
+                    <p>Exit is default; voice requires investment (Hirschman 1970)</p>
                     <p class="label">Empirical Domain</p>
                     <p>Individual disposition toward voice or exit</p>
-                    <p class="label">Extension</p>
-                    <p>Voice requires an organizational container; without sufficient leadership density, exit is the only option structurally available</p>
+                    <div class="extension">
+                        <p class="label">Purple Line Extension</p>
+                        <p>Without leadership density, exit is structurally unavoidable</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <span class="slide-number">19</span>
+        <span class="slide-number">20</span>
     </section>
 
     <!-- ============================================
-         SLIDE 20: LIMITATIONS
+         SLIDE 21: LIMITATIONS
          ============================================ -->
-    <section class="slide" id="slide-20" data-slide="20" data-section="discussion">
+    <section class="slide" id="slide-21" data-slide="21" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1146,17 +1247,17 @@
             <ul class="bullet-list" style="font-size: clamp(1rem, 1.5vw, 1.15rem); margin-top: 2rem;">
                 <li class="fragment">Organizational self-selection into data use agreements</li>
                 <li class="fragment">Measurement consistency across 38 organizations cannot be guaranteed</li>
-                <li class="fragment">Observational design (prospective tracking and threshold nonlinearity) reduces but cannot eliminate confounding</li>
-                <li class="fragment">Generalizability to unions, faith communities, and other associational forms remains an open question</li>
+                <li class="fragment">Observational design reduces but cannot eliminate confounding</li>
+                <li class="fragment">Generalizability to unions, faith communities, and other forms remains open</li>
             </ul>
         </div>
-        <span class="slide-number">20</span>
+        <span class="slide-number">21</span>
     </section>
 
     <!-- ============================================
-         SLIDE 21: FUTURE DIRECTIONS
+         SLIDE 22: FUTURE DIRECTIONS
          ============================================ -->
-    <section class="slide" id="slide-21" data-slide="21" data-section="discussion">
+    <section class="slide" id="slide-22" data-slide="22" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1168,21 +1269,21 @@
             <ul class="bullet-list" style="font-size: clamp(0.95rem, 1.4vw, 1.1rem); margin-top: 2rem;">
                 <li class="fragment"><strong>What builds the purple line?</strong>
                     <ul class="bullet-list" style="margin-top: 0.5rem;">
-                        <li class="sub">Companion paper (McKenna, Ganz, Lin) shows organizing workshop interventions produce measurable shifts in collective agency</li>
+                        <li class="sub">Companion paper (McKenna, Ganz, Lin) shows organizing workshops produce measurable shifts in collective agency</li>
                     </ul>
                 </li>
                 <li class="fragment"><strong>Why are thresholds where they are?</strong> Relational bandwidth hypothesis requires direct testing</li>
-                <li class="fragment">Further investigation of the extent to which <strong>thresholds vary</strong> by issue domain, organizational model, and/or political context</li>
-                <li class="fragment"><strong>Democratic backsliding:</strong> Under authoritarian pressure, does the redundancy mechanism become primary?</li>
+                <li class="fragment"><strong>Threshold variation</strong> by issue domain, organizational model, political context</li>
+                <li class="fragment"><strong>Democratic backsliding:</strong> Does the redundancy mechanism become primary under authoritarian pressure?</li>
             </ul>
         </div>
-        <span class="slide-number">21</span>
+        <span class="slide-number">22</span>
     </section>
 
     <!-- ============================================
-         SLIDE 22: THANK YOU
+         SLIDE 23: THANK YOU
          ============================================ -->
-    <section class="slide" id="slide-22" data-slide="22" data-section="discussion">
+    <section class="slide" id="slide-23" data-slide="23" data-section="discussion">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1191,9 +1292,9 @@
         <div class="content centered">
             <h2>Thank You</h2>
 
-            <div class="image-placeholder" style="max-width: 400px; margin: 2rem auto;">
-                <p class="label">[CAKE PHOTO]</p>
-                <p class="instructions">"When your organizing metric becomes cake, you know it's working."</p>
+            <div style="max-width: 400px; margin: 2rem auto;">
+                <img src="assets/cake.jpeg" alt="Purple line cake" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
+                <p class="small-text" style="text-align: center; margin-top: 0.5rem; font-style: italic;">"When your organizing metric becomes cake, you know it's working."</p>
             </div>
 
             <div class="divider"></div>
@@ -1201,13 +1302,13 @@
             <p class="author-name">Elizabeth McKenna</p>
             <p class="author-affiliation">emckenna@hks.harvard.edu</p>
         </div>
-        <span class="slide-number">22</span>
+        <span class="slide-number">23</span>
     </section>
 
     <!-- ============================================
-         APPENDIX TITLE
+         SLIDE 24: APPENDIX TITLE
          ============================================ -->
-    <section class="slide" id="slide-23" data-slide="23" data-section="appendix">
+    <section class="slide" id="slide-24" data-slide="24" data-section="appendix">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
@@ -1219,29 +1320,55 @@
     </section>
 
     <!-- ============================================
-         APPENDIX: CHENOWETH FIGURE
+         APPENDIX: BEVINS
          ============================================ -->
-    <section class="slide" id="slide-24" data-slide="24" data-section="appendix">
+    <section class="slide" id="slide-25" data-slide="25" data-section="appendix">
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+
+        <div class="content wide">
+            <h2>Global Pattern: High Participation, Low Civic Power</h2>
+
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Success rate of 10 key mass protests (2010-2020)</p>
+
+            <div style="text-align: center;">
+                <img src="assets/bevins.png" alt="If We Burn by Vincent Bevins" style="max-height: 55vh; border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);">
+            </div>
+
+            <p class="small-text" style="margin-top: 1rem;">Source: Bevins, V. (2023). <em>If We Burn</em>. <a href="https://vincentbevins.com/book2/" style="color: var(--accent);">[Link]</a></p>
+        </div>
+        <span class="slide-number">A1</span>
+    </section>
+
+    <!-- ============================================
+         APPENDIX: CHENOWETH
+         ============================================ -->
+    <section class="slide" id="slide-26" data-slide="26" data-section="appendix">
         <div class="corner corner-tl"></div>
         <div class="corner corner-tr"></div>
         <div class="corner corner-bl"></div>
         <div class="corner corner-br"></div>
 
         <div class="content">
-            <h2 style="font-size: clamp(1.1rem, 2vw, 1.4rem); margin-bottom: 1.5rem;">Success Rates of Nonviolent and Violent Mass Campaigns, by Decade (1930-2019)</h2>
+            <h2 style="font-size: clamp(1.1rem, 2vw, 1.4rem); margin-bottom: 1.5rem;">Success Rates of Nonviolent and Violent Mass Campaigns (1930-2019)</h2>
 
             <div style="text-align: center; margin-bottom: 1.5rem;">
-                <img src="assets/jod.png" alt="Success rates of nonviolent and violent campaigns by decade" style="max-width: 100%; max-height: 55vh; border-radius: 4px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+                <img src="assets/jod.png" alt="Success rates by decade" style="max-width: 100%; max-height: 55vh; border-radius: 4px; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
             </div>
 
-            <p class="small-text">Source: Chenoweth, E. (2020). "The Future of Nonviolent Resistance." <em>Journal of Democracy</em>, 31(3), 69-84. <a href="https://www.journalofdemocracy.org/articles/the-future-of-nonviolent-resistance-2/" style="color: var(--accent);">[Link]</a></p>
+            <p class="small-text">Source: Chenoweth, E. (2020). "The Future of Nonviolent Resistance." <em>Journal of Democracy</em>. <a href="https://www.journalofdemocracy.org/articles/the-future-of-nonviolent-resistance-2/" style="color: var(--accent);">[Link]</a></p>
         </div>
+        <span class="slide-number">A2</span>
     </section>
 
     <script>
         const slides = document.querySelectorAll('.slide');
         const navDots = document.getElementById('navDots');
         const sectionNavLinks = document.querySelectorAll('.section-nav a');
+        const resultsSubnav = document.getElementById('resultsSubnav');
+        const resultsSubnavLinks = document.querySelectorAll('.results-subnav a');
 
         // Create nav dots
         slides.forEach((slide, index) => {
@@ -1265,12 +1392,25 @@
             });
         });
 
+        // Results subnav click handler
+        resultsSubnavLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSlide = document.getElementById(targetId);
+                if (targetSlide) {
+                    targetSlide.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
         // Update active states on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const slideNum = parseInt(entry.target.dataset.slide);
                     const currentSection = entry.target.dataset.section;
+                    const currentResult = entry.target.dataset.result;
 
                     document.querySelectorAll('.nav-dot').forEach((dot, i) => {
                         dot.classList.toggle('active', i === slideNum - 1);
@@ -1280,6 +1420,16 @@
                         const linkSection = link.dataset.section;
                         link.classList.toggle('active', linkSection === currentSection);
                     });
+
+                    // Show/hide results subnav
+                    if (currentSection === 'results') {
+                        resultsSubnav.classList.add('visible');
+                        resultsSubnavLinks.forEach(link => {
+                            link.classList.toggle('active', link.dataset.result === currentResult);
+                        });
+                    } else {
+                        resultsSubnav.classList.remove('visible');
+                    }
                 }
             });
         }, { threshold: 0.5 });
@@ -1291,9 +1441,9 @@
             return slide ? [...slide.querySelectorAll('.fragment:not(.visible)')] : [];
         }
 
-        // Get theory columns for slide 19
+        // Get theory columns for slide 20
         function getTheoryColumns(slide) {
-            if (slide && slide.id === 'slide-19') {
+            if (slide && slide.id === 'slide-20') {
                 return [...slide.querySelectorAll('.theory-col:not(.visible)')];
             }
             return [];
@@ -1301,13 +1451,11 @@
 
         // Reveal next fragment on current slide
         function revealNextFragment(slide) {
-            // First check theory columns
             const columns = getTheoryColumns(slide);
             if (columns.length > 0) {
                 columns[0].classList.add('visible');
                 return true;
             }
-            // Then check regular fragments
             const fragments = getSlideFragments(slide);
             if (fragments.length > 0) {
                 fragments[0].classList.add('visible');
@@ -1333,12 +1481,9 @@
 
             if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
                 e.preventDefault();
-                // Reveal fragments on current slide
                 if (currentSlide && revealNextFragment(currentSlide)) {
-                    // Fragment revealed, stay on slide
-                }
-                // Move to next slide
-                else if (currentIndex < slides.length - 1) {
+                    // Fragment revealed
+                } else if (currentIndex < slides.length - 1) {
                     slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
                 }
             } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
