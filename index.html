@@ -918,10 +918,10 @@
             </div>
 
             <!-- Inline attrition chart -->
-            <div class="fragment" style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+            <div style="background: white; border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
                 <div style="display: grid; gap: 0.3rem; font-size: 0.75rem;">
                     <!-- Aggregate donut legend -->
-                    <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.5rem; font-size: 0.7rem;">
+                    <div class="fragment" style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.5rem; font-size: 0.7rem;">
                         <div style="display: flex; align-items: center; gap: 0.4rem;">
                             <div style="width: 12px; height: 12px; background: #A8A29E; border-radius: 2px;"></div>
                             <span><strong>Grey</strong> — 1 event (exit)</span>
@@ -938,96 +938,101 @@
                             <span style="font-weight: 600; color: #7C3AED;">9%</span>
                         </div>
                     </div>
-                    <!-- All org breakdown rows (pseudonyms) -->
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Rural Civic NC</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 56%; background: #A8A29E;"></div><div style="width: 28%; background: #3B82F6;"></div><div style="width: 16%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent);">16%</div>
+                    <!-- Top performers (13%+ purple) -->
+                    <div class="fragment" style="display: grid; gap: 0.3rem;">
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Rural Civic NC</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 56%; background: #A8A29E;"></div><div style="width: 28%; background: #3B82F6;"></div><div style="width: 16%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--accent);">16%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">FaithMN</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 60.5%; background: #A8A29E;"></div><div style="width: 24.3%; background: #3B82F6;"></div><div style="width: 15.2%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--accent);">15%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Immigrant Rights WI</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 69.9%; background: #A8A29E;"></div><div style="width: 15.4%; background: #3B82F6;"></div><div style="width: 14.7%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--accent);">15%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">FaithWI</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 62.5%; background: #A8A29E;"></div><div style="width: 22.8%; background: #3B82F6;"></div><div style="width: 14.6%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--accent);">15%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">People Power MI</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 69.9%; background: #A8A29E;"></div><div style="width: 16.9%; background: #3B82F6;"></div><div style="width: 13.1%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--accent);">13%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Civic OH</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 62.6%; background: #A8A29E;"></div><div style="width: 24.6%; background: #3B82F6;"></div><div style="width: 12.7%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--accent);">13%</div>
+                        </div>
                     </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">FaithMN</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 60.5%; background: #A8A29E;"></div><div style="width: 24.3%; background: #3B82F6;"></div><div style="width: 15.2%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent);">15%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Immigrant Rights WI</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 69.9%; background: #A8A29E;"></div><div style="width: 15.4%; background: #3B82F6;"></div><div style="width: 14.7%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent);">15%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">FaithWI</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 62.5%; background: #A8A29E;"></div><div style="width: 22.8%; background: #3B82F6;"></div><div style="width: 14.6%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent);">15%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">People Power MI</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 69.9%; background: #A8A29E;"></div><div style="width: 16.9%; background: #3B82F6;"></div><div style="width: 13.1%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent);">13%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Civic OH</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 62.6%; background: #A8A29E;"></div><div style="width: 24.6%; background: #3B82F6;"></div><div style="width: 12.7%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent);">13%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Civic Growth WI</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 57.2%; background: #A8A29E;"></div><div style="width: 33.4%; background: #3B82F6;"></div><div style="width: 9.4%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent);">9%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Immigrant Rights NV</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 78.1%; background: #A8A29E;"></div><div style="width: 13.7%; background: #3B82F6;"></div><div style="width: 8.2%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--accent);">8%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Labor Justice MO</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 77.6%; background: #A8A29E;"></div><div style="width: 15.2%; background: #3B82F6;"></div><div style="width: 7.2%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">7%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Latinx Power AZ</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 70.7%; background: #A8A29E;"></div><div style="width: 23.9%; background: #3B82F6;"></div><div style="width: 5.4%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">5%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">United MI</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 69.3%; background: #A8A29E;"></div><div style="width: 25.4%; background: #3B82F6;"></div><div style="width: 5.3%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">5%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">ReproJus MO</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 72.9%; background: #A8A29E;"></div><div style="width: 22.7%; background: #3B82F6;"></div><div style="width: 4.4%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">4%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Civic Federation NC</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 77.3%; background: #A8A29E;"></div><div style="width: 18.5%; background: #3B82F6;"></div><div style="width: 4.2%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">4%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Faith Interfaith PA</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 75.2%; background: #A8A29E;"></div><div style="width: 20.8%; background: #3B82F6;"></div><div style="width: 4%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">4%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Black Civic NC</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 73.8%; background: #A8A29E;"></div><div style="width: 22.6%; background: #3B82F6;"></div><div style="width: 3.5%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">4%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">AAPI Civic PA</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 84.4%; background: #A8A29E;"></div><div style="width: 14%; background: #3B82F6;"></div><div style="width: 1.6%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">2%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Urban Action MI</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 84.2%; background: #A8A29E;"></div><div style="width: 14.3%; background: #3B82F6;"></div><div style="width: 1.5%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">2%</div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
-                        <div style="font-weight: 500; text-align: right;">Youth Power AZ</div>
-                        <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 95%; background: #A8A29E;"></div><div style="width: 5%; background: #3B82F6;"></div><div style="width: 0%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
-                        <div style="font-weight: 600; color: var(--text-secondary);">0%</div>
+                    <!-- Remaining orgs -->
+                    <div class="fragment" style="display: grid; gap: 0.3rem;">
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Civic Growth WI</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 57.2%; background: #A8A29E;"></div><div style="width: 33.4%; background: #3B82F6;"></div><div style="width: 9.4%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--accent);">9%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Immigrant Rights NV</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 78.1%; background: #A8A29E;"></div><div style="width: 13.7%; background: #3B82F6;"></div><div style="width: 8.2%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--accent);">8%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Labor Justice MO</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 77.6%; background: #A8A29E;"></div><div style="width: 15.2%; background: #3B82F6;"></div><div style="width: 7.2%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">7%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Latinx Power AZ</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 70.7%; background: #A8A29E;"></div><div style="width: 23.9%; background: #3B82F6;"></div><div style="width: 5.4%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">5%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">United MI</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 69.3%; background: #A8A29E;"></div><div style="width: 25.4%; background: #3B82F6;"></div><div style="width: 5.3%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">5%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">ReproJus MO</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 72.9%; background: #A8A29E;"></div><div style="width: 22.7%; background: #3B82F6;"></div><div style="width: 4.4%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">4%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Civic Federation NC</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 77.3%; background: #A8A29E;"></div><div style="width: 18.5%; background: #3B82F6;"></div><div style="width: 4.2%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">4%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Faith Interfaith PA</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 75.2%; background: #A8A29E;"></div><div style="width: 20.8%; background: #3B82F6;"></div><div style="width: 4%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">4%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Black Civic NC</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 73.8%; background: #A8A29E;"></div><div style="width: 22.6%; background: #3B82F6;"></div><div style="width: 3.5%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">4%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">AAPI Civic PA</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 84.4%; background: #A8A29E;"></div><div style="width: 14%; background: #3B82F6;"></div><div style="width: 1.6%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">2%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Urban Action MI</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 84.2%; background: #A8A29E;"></div><div style="width: 14.3%; background: #3B82F6;"></div><div style="width: 1.5%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">2%</div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 120px 1fr 35px; gap: 0.4rem; align-items: center; font-size: 0.65rem;">
+                            <div style="font-weight: 500; text-align: right;">Youth Power AZ</div>
+                            <div style="display: flex; height: 14px; border-radius: 2px; overflow: hidden;"><div style="width: 95%; background: #A8A29E;"></div><div style="width: 5%; background: #3B82F6;"></div><div style="width: 0%; background: linear-gradient(90deg, #7C3AED, #A78BFA);"></div></div>
+                            <div style="font-weight: 600; color: var(--text-secondary);">0%</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1057,12 +1062,89 @@
 
             <p class="lead-text">"Purple line" leaders: volunteers who participated in <strong>5+ organizational activities per year</strong> and who themselves <strong>recruit and develop new leaders</strong>.</p>
 
-            <div class="image-placeholder">
-                <p class="label">[FACET CHART: CUMULATIVE PURPLE LINE LEADERS BY ORG]</p>
-                <p class="instructions">Small multiples showing cumulative count of 5+ event participants over time for each organization</p>
+            <!-- Facet chart: 6 orgs, 2x3 grid showing cumulative purple line growth -->
+            <div class="fragment" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
+                <!-- Civic OH (605 leaders) -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                        <span style="font-size: 0.7rem; font-weight: 600;">Civic OH</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">605</span>
+                    </div>
+                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
+                        <path d="M0,38 C10,37 20,35 30,32 C40,28 50,22 60,15 C70,10 80,6 90,3 L100,2" fill="none" stroke="url(#purpleGrad1)" stroke-width="2.5"/>
+                        <circle cx="100" cy="2" r="3" fill="#7C3AED"/>
+                        <defs><linearGradient id="purpleGrad1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                    </svg>
+                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
+                </div>
+                <!-- FaithMN (599 leaders) -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                        <span style="font-size: 0.7rem; font-weight: 600;">FaithMN</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">599</span>
+                    </div>
+                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
+                        <path d="M0,38 C10,36 20,33 30,29 C40,24 50,18 60,12 C70,8 80,5 90,3 L100,2" fill="none" stroke="url(#purpleGrad2)" stroke-width="2.5"/>
+                        <circle cx="100" cy="2" r="3" fill="#7C3AED"/>
+                        <defs><linearGradient id="purpleGrad2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                    </svg>
+                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
+                </div>
+                <!-- Rural Civic NC (592 leaders) -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                        <span style="font-size: 0.7rem; font-weight: 600;">Rural Civic NC</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">592</span>
+                    </div>
+                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
+                        <path d="M0,38 C10,36 20,34 30,30 C40,25 50,19 60,13 C70,9 80,5 90,3 L100,2" fill="none" stroke="url(#purpleGrad3)" stroke-width="2.5"/>
+                        <circle cx="100" cy="2" r="3" fill="#7C3AED"/>
+                        <defs><linearGradient id="purpleGrad3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                    </svg>
+                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
+                </div>
+                <!-- FaithWI (271 leaders) -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                        <span style="font-size: 0.7rem; font-weight: 600;">FaithWI</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">271</span>
+                    </div>
+                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
+                        <path d="M0,38 C10,37 20,35 30,32 C40,28 50,23 60,18 C70,14 80,10 90,7 L100,5" fill="none" stroke="url(#purpleGrad4)" stroke-width="2.5"/>
+                        <circle cx="100" cy="5" r="3" fill="#7C3AED"/>
+                        <defs><linearGradient id="purpleGrad4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                    </svg>
+                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
+                </div>
+                <!-- People Power MI (209 leaders) -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                        <span style="font-size: 0.7rem; font-weight: 600;">People Power MI</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">209</span>
+                    </div>
+                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
+                        <path d="M0,38 C10,37 20,36 30,33 C40,30 50,26 60,21 C70,17 80,13 90,9 L100,7" fill="none" stroke="url(#purpleGrad5)" stroke-width="2.5"/>
+                        <circle cx="100" cy="7" r="3" fill="#7C3AED"/>
+                        <defs><linearGradient id="purpleGrad5" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                    </svg>
+                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
+                </div>
+                <!-- Immigrant Rights WI (86 leaders) -->
+                <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                        <span style="font-size: 0.7rem; font-weight: 600;">Immigrant Rights WI</span>
+                        <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);">86</span>
+                    </div>
+                    <svg viewBox="0 0 100 40" style="width: 100%; height: 50px;">
+                        <path d="M0,38 C10,37 20,36 30,34 C40,32 50,29 60,26 C70,23 80,20 90,17 L100,15" fill="none" stroke="url(#purpleGrad6)" stroke-width="2.5"/>
+                        <circle cx="100" cy="15" r="3" fill="#7C3AED"/>
+                        <defs><linearGradient id="purpleGrad6" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient></defs>
+                    </svg>
+                    <div style="font-size: 0.55rem; color: var(--text-secondary); display: flex; justify-content: space-between;"><span>Jan</span><span>Dec '24</span></div>
+                </div>
             </div>
 
-            <p class="small-text">Grey = one-time participants | Blue = 2-4 activities | Purple = 5+ activities (committed leaders)</p>
+            <p class="fragment small-text" style="margin-top: 0.75rem; text-align: center;">Cumulative count of participants reaching 5+ activities, by organization (2024 cycle)</p>
         </div>
         <span class="slide-number">13</span>
     </section>
